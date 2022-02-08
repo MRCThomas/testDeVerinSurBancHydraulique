@@ -1,0 +1,51 @@
+<mxfile host="65bd71144e">
+    <diagram id="v-w_UyHxcoHzM-9ri4jf" name="Page-1">
+        <mxGraphModel dx="471" dy="905" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="20" style="edgeStyle=none;html=1;fontSize=10;" edge="1" parent="1" source="12" target="19">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="&lt;br&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" vertex="1" connectable="0" parent="20">
+                    <mxGeometry x="0.1091" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" value="&lt;p style=&quot;margin: 4px 0px 0px&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;span&gt;Réalisation&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;text-align: left ; margin: 0px 0px 0px 8px&quot;&gt;text :&amp;nbsp;&lt;span&gt;Réalisation sur un PC sous IHM Windows, en utilisant les normes de représentation&lt;/span&gt;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;fontSize=10;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="127.5" y="290" width="135" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;Supervision statique de l'installation&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text :&amp;nbsp; visualisation de l'installation (digitalisation, photos), et du schéma hydraulique&lt;/p&gt;&lt;div style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;br style=&quot;padding: 0px ; margin: 0px ; text-align: left&quot;&gt;&lt;/div&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="60" width="230" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;Paramétrage des acquisitions&lt;/span&gt;&lt;/p&gt;&lt;hr&gt;&lt;div style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;text :&amp;nbsp;&lt;/span&gt;&lt;span&gt;Permet le choix de la fréquence&lt;/span&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;d’acquisition entre 1s, 100ms,10ms&lt;/span&gt;&lt;/div&gt;&lt;span&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;pour les pressions, et pour le débit à&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;partir des data obtenu en FR 1.&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="60" width="250" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=10;" edge="1" parent="1" source="23" target="22">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;span&gt;Modification&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;text-align: left ; margin: 0px 0px 0px 8px&quot;&gt;text :&amp;nbsp;&lt;span style=&quot;text-align: center&quot;&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;Proposer par défaut&lt;br/&gt;les choix du&lt;br/&gt;contrôleur. Permettre&lt;br/&gt;une modification de&lt;br/&gt;ceux-ci.&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;br/&gt;&#9;&#9;&lt;br/&gt;&#9;&lt;br/&gt;&#9;&lt;br/&gt;&#9;&#9;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="397.5" y="290" width="135" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;Départ des acquisitions&lt;/span&gt;&lt;/p&gt;&lt;hr&gt;&lt;div style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;div&gt;&lt;div style=&quot;text-align: left&quot;&gt;text :&lt;font style=&quot;font-size: 10px&quot;&gt;&lt;font&gt;&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;text-align: center&quot;&gt;Dans ce mode le logiciel attend un top&lt;br/&gt;départ des acquisitions sur une entrée&lt;br/&gt;&lt;/span&gt;&lt;span style=&quot;text-align: center&quot;&gt;TOR de la carte d’E/S provenant de&lt;br/&gt;l’automate de pilotage du banc test.&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;br/&gt;&#9;&#9;&lt;br/&gt;&#9;&lt;br/&gt;&#9;&lt;br/&gt;&#9;&#9;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="60" width="250" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=10;" edge="1" parent="1" source="28" target="27">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;span&gt;Annulation&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;text-align: left ; margin: 0px 0px 0px 8px&quot;&gt;text :&amp;nbsp;&lt;span style=&quot;text-align: center&quot;&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;Permettre d'annuler l'essai à ce stade =&amp;gt; aucune sauvegarde&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;&#9;&#9;&lt;br&gt;&#9;&lt;br&gt;&#9;&lt;br&gt;&#9;&#9;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="707.5" y="290" width="135" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;Tracé de courbes en direct&lt;/span&gt;&lt;/p&gt;&lt;hr&gt;&lt;div style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;div&gt;&lt;div style=&quot;text-align: left&quot;&gt;text :&lt;font&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;&lt;span&gt;Visualiser sur une page écran les&lt;br/&gt;acquisitions des capteurs avec des&lt;br/&gt;couleurs différentes. On utilisera un&lt;br/&gt;&lt;/span&gt;&lt;span&gt;mode d’affichage de la courbe type&lt;br/&gt;&lt;/span&gt;&lt;span&gt;oscilloscope afin de toujours visualiser&lt;br/&gt;&lt;/span&gt;&lt;span&gt;un maximum de points à l’écran&lt;/span&gt;&lt;span style=&quot;text-align: center&quot;&gt;.&lt;/span&gt;&lt;/font&gt;&lt;/font&gt;&lt;/div&gt;&lt;br&gt;&#9;&#9;&lt;br&gt;&#9;&lt;br&gt;&#9;&lt;br&gt;&#9;&#9;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="490" width="250" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=10;" edge="1" parent="1" source="31" target="30">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="&lt;p style=&quot;margin: 4px 0px 0px&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;span&gt;Unités de graduation&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;text-align: left ; margin: 0px 0px 0px 8px&quot;&gt;text :&amp;nbsp;&lt;span&gt;Légende obligatoire, les axes seront gradués en fonction de l'échelle et des unités S.I.&lt;/span&gt;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;fontSize=10;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="127.5" y="700" width="135" height="140" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
