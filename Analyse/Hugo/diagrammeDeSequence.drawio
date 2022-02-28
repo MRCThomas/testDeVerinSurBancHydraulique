@@ -120,6 +120,12 @@
                         <mxPoint x="280" y="585" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
+                <mxCell id="36" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="450" width="520" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="Création de la liste des essais" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="770" width="200" height="30" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
