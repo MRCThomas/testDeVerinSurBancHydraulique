@@ -1,0 +1,52 @@
+<mxfile host="65bd71144e">
+    <diagram id="ll4o3kt9cESEFMLjgMpZ" name="Page-1">
+        <mxGraphModel dx="575" dy="479" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Sauvegardes&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=Stockage des information de l'acquisition dans la base de données.&lt;br&gt;Id=2.3&lt;/p&gt;" style="shape=rect;overflow=fill;html=1;whiteSpace=wrap;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="314" y="500" width="200" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="Vjmbun89EZnmJNTmz4j9-12" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3" target="5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="Vjmbun89EZnmJNTmz4j9-14" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3" target="Vjmbun89EZnmJNTmz4j9-9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Affichage tracé&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;The system shall do&quot;&lt;br&gt;Id=2.1&lt;/p&gt;" style="shape=rect;overflow=fill;html=1;whiteSpace=wrap;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="314" y="220" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="Vjmbun89EZnmJNTmz4j9-10" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="4" target="7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Sauvegarde&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=Sauvegarde de la totalité de la BD sur un support de sauvegarde externe&lt;br&gt;Id=3&lt;/p&gt;" style="shape=rect;overflow=fill;html=1;whiteSpace=wrap;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="70" width="200" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="Vjmbun89EZnmJNTmz4j9-13" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="5" target="2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Fin des acquisitions&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=Une&amp;nbsp; acquisition est terminée par la validation de l'opérateur indiquant lz fin de l'essai et l'enregistrement des mesures dans la BD essais&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;Id=2.2&lt;/p&gt;" style="shape=rect;overflow=fill;html=1;whiteSpace=wrap;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="314" y="340" width="200" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="Vjmbun89EZnmJNTmz4j9-15" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="6" target="Vjmbun89EZnmJNTmz4j9-7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Initialisation BD&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=Créer ue base de donné Essais vierge&lt;br&gt;Id=1&lt;/p&gt;" style="shape=rect;overflow=fill;html=1;whiteSpace=wrap;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="75" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Restauration&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=Permet de restaurer une BD essais depuis un support de sauvegarde vers le poste controleur&lt;br&gt;Id=3.1&lt;/p&gt;" style="shape=rect;overflow=fill;html=1;whiteSpace=wrap;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="215" width="200" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="Vjmbun89EZnmJNTmz4j9-11" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="Vjmbun89EZnmJNTmz4j9-7" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="Vjmbun89EZnmJNTmz4j9-7" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Récupération des paramétres d'essai&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=Récupération des pramétres d'essai, du mode opératoir à partir du numéro d'affaire dans la BD&lt;br&gt;Id=2&lt;/p&gt;" style="shape=rect;overflow=fill;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="314" y="60" width="200" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="Vjmbun89EZnmJNTmz4j9-9" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Annulation de l'essai&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=Permettre d'annuler l'essai en cours sans créer de sauvegarde.&lt;br&gt;Id=2.1.1&lt;/p&gt;" style="shape=rect;overflow=fill;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="220" width="200" height="100" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
