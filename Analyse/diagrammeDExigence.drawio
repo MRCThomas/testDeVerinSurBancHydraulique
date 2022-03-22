@@ -1,122 +1,139 @@
 <mxfile host="65bd71144e">
     <diagram id="ONgLlP4N_q6dtPXhDEXq" name="Page-1">
-        <mxGraphModel dx="1714" dy="2141" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="3007" dy="2352" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="12" value="&amp;lt;&amp;lt;refine&amp;gt;&amp;gt;&lt;br&gt;" style="edgeStyle=none;html=1;endArrow=open;endSize=12;dashed=1;verticalAlign=bottom;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" parent="1" edge="1">
-                    <mxGeometry x="-0.1111" y="40" width="160" relative="1" as="geometry">
-                        <mxPoint x="90" y="390" as="sourcePoint"/>
-                        <mxPoint x="110" y="350" as="targetPoint"/>
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="13" value="&amp;lt;&amp;lt;refine&amp;gt;&amp;gt;&lt;br&gt;" style="edgeStyle=none;html=1;endArrow=open;endSize=12;dashed=1;verticalAlign=bottom;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" edge="1">
-                    <mxGeometry x="-0.1111" y="40" width="160" relative="1" as="geometry">
-                        <mxPoint x="120" y="440" as="sourcePoint"/>
-                        <mxPoint x="210" y="350" as="targetPoint"/>
-                        <mxPoint as="offset"/>
-                        <Array as="points"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="15" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Visualisation en direct des courbes&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Visualisation en direct des courbes de débit et pression pendant les acquisitions.&quot;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;Id=&quot;4&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
-                    <mxGeometry x="197" y="-1140" width="190" height="120" as="geometry"/>
+                    <mxGeometry x="1110" y="-1135" width="190" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Paramétrage des acquisitions&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Permet le choix de la fréquence d'acquisition entre 10ms, 100ms, 1000ms pour les pressions, et pour le débit à partir des data obtenu.&quot;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;Id=&quot;4.1&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
-                    <mxGeometry x="197" y="-950" width="190" height="140" as="geometry"/>
-                </mxCell>
-                <mxCell id="17" value="&amp;lt;&amp;lt;refine&amp;gt;&amp;gt;&lt;br&gt;" style="edgeStyle=none;html=1;endArrow=open;endSize=12;dashed=1;verticalAlign=bottom;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="16" target="15" edge="1">
-                    <mxGeometry x="-0.4286" y="-28" width="160" relative="1" as="geometry">
-                        <mxPoint x="292" y="-945" as="sourcePoint"/>
-                        <mxPoint x="-113" y="-146" as="targetPoint"/>
-                        <mxPoint as="offset"/>
-                        <Array as="points"/>
-                    </mxGeometry>
+                <mxCell id="16" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Paramétrage des acquisitions&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Permet le choix de la fréquence d'acquisition entre 10ms, 100ms, 1000ms pour les pressions, et pour le débit.&quot;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;Id=&quot;4.1&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="-940" width="190" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="30" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Gestion des affaires&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Récupération des affaires envoyées par la GPAO et les stocker dans le SGBD&quot;&lt;br&gt;Id=&quot;1&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
-                    <mxGeometry x="10" y="-790" width="200" height="120" as="geometry"/>
+                    <mxGeometry x="-280" y="-1140" width="200" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="32" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Gestion des essais&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Le contrôleur peut créer un essais, modifier un essai non fait, supprimer un essai non fait, éditer une fiche d'essai&quot;&lt;br&gt;Id=&quot;2&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
-                    <mxGeometry x="407" y="-1140" width="200" height="120" as="geometry"/>
+                    <mxGeometry x="80" y="-1130" width="200" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="33" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Supervision du banc&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Visualisation de l'installation(Digitalisation, photos), et du schéma hydraulique&quot;&lt;br&gt;Id=&quot;5&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
-                    <mxGeometry x="17" y="-1140" width="160" height="120" as="geometry"/>
-                </mxCell>
-                <mxCell id="34" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Normes&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Utiliser les normes de représentations sous IHM Windows&quot;&lt;br&gt;Id=&quot;5.1&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
-                    <mxGeometry x="17" y="-950" width="160" height="114" as="geometry"/>
-                </mxCell>
-                <mxCell id="35" value="&amp;lt;&amp;lt;refine&amp;gt;&amp;gt;&lt;br&gt;" style="edgeStyle=none;html=1;endArrow=open;endSize=12;dashed=1;verticalAlign=bottom;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="34" target="33" edge="1">
-                    <mxGeometry x="-0.3333" y="-32" width="160" relative="1" as="geometry">
-                        <mxPoint x="457" y="-1224" as="sourcePoint"/>
-                        <mxPoint x="357" y="-1300" as="targetPoint"/>
-                        <mxPoint as="offset"/>
-                        <Array as="points"/>
-                    </mxGeometry>
+                <mxCell id="33" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Supervision du banc&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Visualisation de l'installation(Digitalisation, photos), et du schéma hydraulique sur le poste banc.&quot;&lt;br&gt;Id=&quot;5&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="1370" y="-1135" width="160" height="130" as="geometry"/>
                 </mxCell>
                 <mxCell id="37" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Sauvegarde des essais&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Chaque essai devra être sauvegarder dans le SGBD 'Essais'&quot;&lt;br&gt;Id=&quot;2.1&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
-                    <mxGeometry x="407" y="-945" width="200" height="120" as="geometry"/>
+                    <mxGeometry x="-40" y="-960" width="200" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="38" value="&amp;lt;&amp;lt;refine&amp;gt;&amp;gt;&lt;br&gt;" style="edgeStyle=none;html=1;endArrow=open;endSize=12;dashed=1;verticalAlign=bottom;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="37" target="32" edge="1">
-                    <mxGeometry x="-0.3333" y="-33" width="160" relative="1" as="geometry">
-                        <mxPoint x="587" y="-594" as="sourcePoint"/>
-                        <mxPoint x="497" y="-670" as="targetPoint"/>
+                <mxCell id="39" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Gestion des PV&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Permet à partir de l'affaire de modifier cerrtain champs du PV et d'effacer un PV, d'éditer le PV sur écran.&quot;&lt;br&gt;Id=&quot;3&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="-1140" width="200" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Visualisation des courbes en différés&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Visualisation en différés des coubes de débit&amp;nbsp; et pression après les acquisitions des essais.&quot;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;Id=&quot;2.3&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="334" y="-1100" width="191" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Visualisation des essais&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Le manipulateur pourra visualiser les différents essais présent dans la BDD.'&quot;&lt;br&gt;Id=&quot;2.1.1&lt;span&gt;&quot;&lt;/span&gt;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="-40" y="-790" width="200" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Doublons d'affaires&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Il ne peut y avoir aucun doublon sur le numéro d''affaire mais au niveau du contenu, oui.&quot;&lt;br&gt;Id=&quot;1.1&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="-280" y="-960" width="200" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Identification du contrôleur&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Seul le contrôleur peut effectuer cette opération et son identification et obligatoire&quot;&lt;br&gt;Id=&quot;2.2&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="-960" width="200" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Format des PV&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Le PV pourra être exporter seulement en format PDF.&quot;&lt;br&gt;Id=&quot;3.1&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="510" y="-940" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Impression des PV&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Le PV pourra être imprimer.&quot;&lt;br&gt;Id=&quot;3.2&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="760" y="-940" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Annulation de l'essai&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Le manipulateur pourra stopper l'acquisition d'un essai.&quot;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;Id=&quot;4.2&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="1230" y="-940" width="190" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="&amp;lt;&amp;lt;refine&amp;gt;&amp;gt;" style="endArrow=open;startArrow=none;endFill=0;startFill=0;endSize=8;html=1;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="16" target="15" edge="1">
+                    <mxGeometry x="0.1351" width="160" relative="1" as="geometry">
+                        <mxPoint x="420" y="-920" as="sourcePoint"/>
+                        <mxPoint x="580" y="-920" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="1095" y="-990"/>
+                            <mxPoint x="1205" y="-990"/>
+                        </Array>
                         <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="60" style="edgeStyle=none;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="58" target="30" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="" style="shape=sumEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;html=1;backgroundOutline=1;rotation=-45;" parent="1" vertex="1">
+                    <mxGeometry x="-187.5" y="-1020" width="15" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="" style="endArrow=none;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="48" target="58" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-230" y="-930" as="sourcePoint"/>
+                        <mxPoint x="-180" y="-980" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="61" value="" style="shape=sumEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;html=1;backgroundOutline=1;rotation=-45;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="-1010" width="15" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="" style="endArrow=none;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="37" target="61" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="70" y="-930" as="sourcePoint"/>
+                        <mxPoint x="120" y="-980" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="60" y="-980"/>
+                            <mxPoint x="118" y="-980"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="63" value="" style="shape=sumEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;html=1;backgroundOutline=1;rotation=-45;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="-1010" width="15" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" value="" style="endArrow=none;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=0.288;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="52" target="63" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="237" y="-960" as="sourcePoint"/>
+                        <mxPoint x="127.50000000000023" y="-984.9999999999999" as="targetPoint"/>
                         <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="39" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Gestion des PV&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Permet à partir de l'affaire de modifier cerrtain champs du PV et d'effacer un PV, d'éditer le PV sur écran avec envoi possible par mail automatique au format PDF et/ou l'imprimer sur papier.&quot;&lt;br&gt;Id=&quot;3&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
-                    <mxGeometry x="627" y="-1140" width="200" height="150" as="geometry"/>
+                <mxCell id="65" value="" style="shape=sumEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;html=1;backgroundOutline=1;rotation=-45;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="-1035" width="15" height="15" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Identification du contrôleur&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Seul le contrôleur peut effectuer cette opération et son identification et obligatoire&quot;&lt;br&gt;Id=&quot;3.1&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" parent="1" vertex="1">
-                    <mxGeometry x="627" y="-935" width="200" height="120" as="geometry"/>
-                </mxCell>
-                <mxCell id="41" value="&amp;lt;&amp;lt;refine&amp;gt;&amp;gt;&lt;br&gt;" style="edgeStyle=none;html=1;endArrow=open;endSize=12;dashed=1;verticalAlign=bottom;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="40" target="39" edge="1">
-                    <mxGeometry y="-31" width="160" relative="1" as="geometry">
-                        <mxPoint x="1287" y="-1180" as="sourcePoint"/>
-                        <mxPoint x="1237" y="-1230" as="targetPoint"/>
-                        <mxPoint as="offset"/>
+                <mxCell id="66" value="" style="endArrow=none;html=1;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.605;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="43" target="65" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="247.5999999999999" y="-950" as="sourcePoint"/>
+                        <mxPoint x="247.5" y="-985" as="targetPoint"/>
                         <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="42" value="&amp;lt;&amp;lt;refine&amp;gt;&amp;gt;&lt;br&gt;" style="edgeStyle=none;html=1;endArrow=open;endSize=12;dashed=1;verticalAlign=bottom;entryX=0.858;entryY=1.02;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" parent="1" source="40" target="32" edge="1">
-                    <mxGeometry x="-0.3808" y="-17" width="160" relative="1" as="geometry">
-                        <mxPoint x="737" y="-920" as="sourcePoint"/>
-                        <mxPoint x="737" y="-980" as="targetPoint"/>
+                <mxCell id="67" value="&amp;lt;&amp;lt;refine&amp;gt;&amp;gt;" style="endArrow=open;startArrow=none;endFill=0;startFill=0;endSize=8;html=1;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="47" target="37" edge="1">
+                    <mxGeometry x="-0.5" width="160" relative="1" as="geometry">
+                        <mxPoint x="490" y="-710" as="sourcePoint"/>
+                        <mxPoint x="410" y="-730" as="targetPoint"/>
                         <mxPoint as="offset"/>
-                        <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="43" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Visualisation des courbes en différés&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Visualisation en différés des coubes de débit&amp;nbsp; et pression après les acquisitions.&quot;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;Id=&quot;6&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="627" y="-760" width="191" height="120" as="geometry"/>
+                <mxCell id="68" value="" style="shape=sumEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;html=1;backgroundOutline=1;rotation=-45;" parent="1" vertex="1">
+                    <mxGeometry x="630" y="-1020" width="15" height="15" as="geometry"/>
                 </mxCell>
-                <mxCell id="44" value="&amp;lt;&amp;lt;refine&amp;gt;&amp;gt;&lt;br&gt;" style="edgeStyle=none;html=1;endArrow=open;endSize=12;dashed=1;verticalAlign=bottom;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="40" target="43">
-                    <mxGeometry y="-31" width="160" relative="1" as="geometry">
-                        <mxPoint x="530" y="-480" as="sourcePoint"/>
-                        <mxPoint x="530" y="-650" as="targetPoint"/>
-                        <mxPoint as="offset"/>
-                        <Array as="points"/>
+                <mxCell id="69" value="" style="endArrow=none;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=0.637;exitY=-0.006;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="53" target="68" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="638" y="-940" as="sourcePoint"/>
+                        <mxPoint x="690" y="-990" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="46" value="&amp;lt;&amp;lt;refine&amp;gt;&amp;gt;&lt;br&gt;" style="edgeStyle=none;html=1;endArrow=open;endSize=12;dashed=1;verticalAlign=bottom;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="47" target="37">
-                    <mxGeometry x="-0.1477" y="-27" width="160" relative="1" as="geometry">
-                        <mxPoint x="500" y="-770" as="sourcePoint"/>
-                        <mxPoint x="517" y="-1010" as="targetPoint"/>
-                        <mxPoint as="offset"/>
-                        <Array as="points"/>
+                <mxCell id="70" value="" style="shape=sumEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;html=1;backgroundOutline=1;rotation=-45;" parent="1" vertex="1">
+                    <mxGeometry x="790" y="-1020" width="15" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="" style="endArrow=none;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=0.188;exitY=-0.006;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="54" target="70" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="810" y="-940" as="sourcePoint"/>
+                        <mxPoint x="860" y="-990" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="47" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Visualisation des essais&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Le manipulateur pourra visualiser les différents essais présent dans la BDD.'&quot;&lt;br&gt;Id=&quot;2.2.1&lt;span&gt;&quot;&lt;/span&gt;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="407" y="-760" width="200" height="120" as="geometry"/>
+                <mxCell id="72" value="" style="shape=sumEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;html=1;backgroundOutline=1;rotation=-45;" parent="1" vertex="1">
+                    <mxGeometry x="1270" y="-1015" width="15" height="15" as="geometry"/>
                 </mxCell>
-                <mxCell id="48" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Doublons d'affaires&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Il ne peut y avoir aucun doublon sur le numéro d''affaire mais au niveau du contenu, oui.&quot;&lt;br&gt;Id=&quot;1.1&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="10" y="-630" width="200" height="120" as="geometry"/>
-                </mxCell>
-                <mxCell id="49" value="&amp;lt;&amp;lt;refine&amp;gt;&amp;gt;&lt;br&gt;" style="edgeStyle=none;html=1;endArrow=open;endSize=12;dashed=1;verticalAlign=bottom;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="48" target="30">
-                    <mxGeometry x="-0.3333" y="-30" width="160" relative="1" as="geometry">
-                        <mxPoint x="517" y="-750" as="sourcePoint"/>
-                        <mxPoint x="517" y="-815" as="targetPoint"/>
-                        <mxPoint as="offset"/>
-                        <Array as="points"/>
+                <mxCell id="73" value="" style="endArrow=none;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" parent="1" source="55" target="72" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1260" y="-930" as="sourcePoint"/>
+                        <mxPoint x="1310" y="-980" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
             </root>
