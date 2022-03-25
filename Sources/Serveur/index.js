@@ -10,8 +10,8 @@ app.get('/', function (req, res) {
 });
 
 // On localhost:3000/welcome
-app.get('/welcome', function (req, res) {
-    res.send('<b>Hello</b> welcome to my http server made with express');
+app.get('/login', function (req, res) {
+    res.send('Page Login');
 });
 app.post('/welcome', function (req, res) {
     console.log(req.body);
@@ -34,7 +34,7 @@ app.get('/api/affaire/:id', function (req, res, next) {
 })
 // Change the 404 message modifing the middleware
 app.use(function (req, res, next) {
-    res.status(404).send("Sorry, that route doesn't exist. Have a nice day :)");
+    res.status(404).send("Désolé cette page n'existe pas, veuillez reformuler votre demande)");
 });
 
 // start the server in the port 3000 !
