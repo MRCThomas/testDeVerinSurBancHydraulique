@@ -1,10 +1,10 @@
 // Require express and create an instance of it
 const { response } = require('express');
 var express = require('express');
-var http = require('http');
 var app = express();
 
-app.use(express.json())
+app.use(express.json());
+app.use(express.static('./../Application Web'));
 //on the request to root (localhost:3000/)
 app.get('/', function (req, res) {
     res.writeHead(301,{Location: ''});
