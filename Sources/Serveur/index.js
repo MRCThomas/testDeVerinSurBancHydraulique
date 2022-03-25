@@ -1,15 +1,10 @@
-// Require express and create an instance of it
+// Création d'une instance d'express
 const { response } = require('express');
 var express = require('express');
 var app = express();
 
-app.use(express.json());
-app.use(express.static('./../Application Web'));
-//on the request to root (localhost:3000/)
-app.get('/', function (req, res) {
-    res.writeHead(301,{Location: ''});
-    res.end();
-});
+app.use(express.static('./../Application Web'), express.json()); //
+
 app.post('/welcome', function (req, res) {
     console.log(req.body);
     res.json({
@@ -29,12 +24,12 @@ app.get('/api/affaire/:id', function (req, res, next) {
     const id = req.params.id;
     res.json(affaires.filter((e) => e.id == id));
 })
-// Change the 404 message modifing the middleware
+// Si la page n'est pas reconnu
 app.use(function (req, res, next) {
     res.status(404).send("Désolé cette page n'existe pas, veuillez reformuler votre demande)");
 });
 
-// start the server in the port 3000 !
+// Lance le serveur sur le port 3000
 app.listen(3000, function () {
     console.log('example app listening on port 3000.');
 });
