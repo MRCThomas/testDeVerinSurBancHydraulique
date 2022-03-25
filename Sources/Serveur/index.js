@@ -1,18 +1,22 @@
 // Require express and create an instance of it
 const { response } = require('express');
 var express = require('express');
+var http = require('http');
 var app = express();
 
 app.use(express.json())
-// on the request to root (localhost:3000/)
+//on the request to root (localhost:3000/)
 app.get('/', function (req, res) {
-    res.send('<b>My</b> first express http server');
+    res.writeHead(301,{Location: ''});
+    res.end();
 });
 
 // On localhost:3000/welcome
-app.get('/login', function (req, res) {
-    res.send('Page Login');
-});
+// app.get('/login', function (req, res) {
+//     res.writeHead(301,{Location: '/Sources/Application Web/index.php'});
+//     res.end();
+// });
+
 app.post('/welcome', function (req, res) {
     console.log(req.body);
     res.json({
