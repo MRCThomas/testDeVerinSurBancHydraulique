@@ -10,13 +10,6 @@ app.get('/', function (req, res) {
     res.writeHead(301,{Location: ''});
     res.end();
 });
-
-// On localhost:3000/welcome
-// app.get('/login', function (req, res) {
-//     res.writeHead(301,{Location: '/Sources/Application Web/index.php'});
-//     res.end();
-// });
-
 app.post('/welcome', function (req, res) {
     console.log(req.body);
     res.json({
