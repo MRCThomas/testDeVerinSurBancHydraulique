@@ -26,6 +26,23 @@ app.get('/api/affaire/:id', function (req, res, next) {
     const id = req.params.id;
     res.json(affaires);
 })
+//Route API pour vérifier la connexion du contrôleur
+app.post('/api/login/', function (req, res, next) {
+    const users = [
+        {username: "root", pwd: "root"},
+        {username: "admin", pwd: "1234"},
+    ];
+    const found = users.find(u=>u.username === req.body.username);
+    if(!found){
+        return res.status(403).send();
+    }
+    if(found.pwd === req.body.pwd){
+        return res.status(200).send();
+    }else{
+        return res.status(403).send();
+    }
+});
+
 // Si la page n'est pas reconnu
 app.use(function (req, res, next) {
     res.status(404).send("Désolé cette page n'existe pas, veuillez reformuler votre demande)");
