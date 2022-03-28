@@ -3,6 +3,7 @@ const { response } = require('express');
 var express = require('express');
 var cors = require('cors');
 var app = express();
+const db = require("./services/db.js")
 app.use(cors());
 app.use(express.static('./../Application Web'), express.json()); //
 
@@ -21,17 +22,9 @@ app.get('/api/affaire/fake' , function (req, res, next) {
 })
 
 app.get('/api/affaire/:id', function (req, res, next) {
-    const affaires = [
-        { id: 24, name: "affaire3" },
-        { id: 25, name: "affaire25" },
-        { id: 45, name: "affaire45" },
-        { id: 67, name: "affaire67" },
-        { id: 34, name: "affaire34" },
-        { id: 94, name: "affaire94" },
-
-    ];
+    const affaires = db.query("SELECT * from affaire;")
     const id = req.params.id;
-    res.json(affaires.filter((e) => e.id == id));
+    res.json(affaires);
 })
 // Si la page n'est pas reconnu
 app.use(function (req, res, next) {
