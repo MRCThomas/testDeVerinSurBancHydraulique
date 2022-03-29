@@ -1,4 +1,5 @@
 const { response } = require("express");
+const SocketHelper = require('./js/socket');
 
 let userInput = document.getElementById("username");
 let pwdInput = document.getElementById("password");
@@ -12,5 +13,6 @@ connexionInput.addEventListener("click", (e) => {
         .catch(error => {
             console.log(error); 
         });
-})
-    
+});
+
+
