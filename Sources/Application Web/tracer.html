@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>     
+  <a href="test2.html">Essai 2</a></href>
+  <title>Affaires</title>
+</head>
+
+<body>
+
+
+
+
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
+
+
+  <script>
+
+
+    fetch("http://192.168.65.187:3000/api/affaire/fake") //Promesse de reponse 
+      .then((response) => {             //Dés qu'il la reponse il la transforme en json
+        console.log('response : ', response);
+        response.json()
+          .then((data) => {                   //Il attend ensuite la reponse de data qui vient en lancant le fonction data 
+            console.log('data : ', data);
+            drawChart(data);            //drawChart et egale a data
+          });
+      });
+
+
+    function drawChart(chartData) {                         //ajout de la fonction drawCHart
+
+      console.log(chartData.data)           
+      let labels = [];        
+      chartData.data.forEach((value, index) => {
+        labels[index] = index.toString();
+      });
+
+      console.log(labels);
+
+      const myChart = new Chart(          //Ajout de la variable constante Mychart 
+        document.getElementById('myChart'),
+        {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'My First dataset',
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: chartData.data
+            }]
+          }
+        }
+      );
+    }
+  </script>
+
+
+</body>
+
+</html>
