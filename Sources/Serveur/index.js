@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 const db = require("./services/db.js")
 const WebSocket = require('ws');
-
+const jwt = require('jsonwebtoken');
 app.use(cors());
 app.use(express.static('./../Application Web'), express.json()); //
 
@@ -39,7 +39,8 @@ app.post('/api/login/', function (req, res, next) {
         return res.status(403).send();
     }
     if(found.pwd === req.body.pwd){
-        return res.status(200).send();
+        let token = jwt.sign({ foo: 'payload'}, 'secret');
+        return res.status(200).json(token);
     }else{
         return res.status(403).send();
     }
