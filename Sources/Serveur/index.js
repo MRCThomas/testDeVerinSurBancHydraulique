@@ -17,10 +17,11 @@ app.get('/api/affaire/fake' , function (req, res, next) {
     res.json({data});
 })
 
-app.get('/api/affaire/:id', function (req, res, next) {
-    const affaires = db.query("SELECT * from affaire;")
+app.get('/api/affaire/:id', async (req, res, next) =>  {
+    const users = await db.query("SELECT * from users;");
+    console.log(users);
     const id = req.params.id;
-    res.json(affaires);
+    res.json(users);
 })
 //Route API pour vérifier la connexion du contrôleur
 app.post('/api/login/', function (req, res, next) {
