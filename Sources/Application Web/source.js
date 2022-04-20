@@ -7,14 +7,22 @@ let connexionInput = document.getElementById("connexion");
 
 connexionInput.addEventListener("click", (e) => {
     e.preventDefault();
+    
     fetch("http://localhost:3000/api/login", {method : 'POST', headers : requestHeader,  body : JSON.stringify({ 
         "username": userInput.value,
         "pwd": pwdInput.value
     })})
-        .then(response => response.json())
+        .then(response => {
+            if(response.status == "200"){
+                window.location.href = "http://localhost:3000/affaireControleur.html"; //Redirection de page
+            }else{
+
+            }
+        })
+    
         .catch(error => {
             console.log(error);
-        });
+        })
 });
 
 
