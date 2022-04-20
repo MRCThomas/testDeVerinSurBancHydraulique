@@ -1,9 +1,11 @@
 // Création d'une instance d'express
 const { response } = require('express');
-var express = require('express');
-var cors = require('cors');
-var app = express();
+const express = require('express');
+const cors = require('cors');
+const app = express();
 const db = require("./services/db.js")
+const WebSocket = require('ws');
+
 app.use(cors());
 app.use(express.static('./../Application Web'), express.json()); //
 
@@ -50,6 +52,19 @@ app.use(function (req, res, next) {
 });
 
 // Lance le serveur sur le port 3000
-app.listen(3000, function () {
+const server = app.listen(3000, function () {
     console.log('example app listening on port 3000.');
 });
+
+const wsServer = new WebSocket.Server({noServer : true, path :"/ws"});
+
+server.on('upgrade', (request, socket, head) => {
+    wsServer.handleUpgrade(request, socket, head, (websocket) => {
+        wsServer.emit("connection", websocket, request);
+    });
+});
+
+wsServer.on('connexion',(socket, req )=>{
+    console.log('socket',socket);
+    console.log('req',req);
+})
