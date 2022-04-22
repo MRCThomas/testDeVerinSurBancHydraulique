@@ -40,7 +40,13 @@ app.post('/api/login/', function (req, res, next) {
         return res.status(403).send();
     }
 });
-
+app.get('/affaireControleur.html', function (req, res, next) {
+    jwt.verify(token, 'secret', function(error, decoded){
+        console.log(res.status);
+        return res.status(200).send();
+    })
+    return res.status(403).send();
+})
 // Si la page n'est pas reconnu
 app.use(function (req, res, next) {
     res.status(404).send("Désolé cette page n'existe pas, veuillez reformuler votre demande)");
