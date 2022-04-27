@@ -16,7 +16,7 @@ connexionInput.addEventListener("click", (e) => {
             if(response.status == "200"){
                 window.location.href = "http://localhost:3000/affaireControleur.html"; //Redirection de page
             }else{
-
+                //Afficher un message d'erreur
             }
         })
     
