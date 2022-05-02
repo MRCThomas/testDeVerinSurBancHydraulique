@@ -22,46 +22,62 @@
 
   <script>
 
-
-    fetch("http://192.168.65.187:3000/api/affaire/fake") //Promesse de reponse 
+fetch("http://127.0.0.1:3000/api/affaire/fake") //Promesse de reponse 
       .then((response) => {             //Dés qu'il la reponse il la transforme en json
-        console.log('response : ', response);
         response.json()
-          .then((data) => {                   //Il attend ensuite la reponse de data qui vient en lancant le fonction data 
-            console.log('data : ', data);
-            drawChart(data);            //drawChart et egale a data
+          .then((data) => {
+            fetch("http://127.0.0.1:3000/api/affaire/fake")
+            .then((response2) => {
+              response2.json().then(data2 => {
+                drawChart(data, data2);            //drawChart et egale a data
+              })
+            }) //Promesse de reponse 
+            //Il attend ensuite la reponse de data qui vient en lancant le fonction data 
           });
       });
 
 
-    function drawChart(chartData) {                         //ajout de la fonction drawCHart
+      function drawChart(chartData1,chartData2) {                         //ajout de la fonction drawCHart
 
-      console.log(chartData.data)           
-      let labels = [];        
-      chartData.data.forEach((value, index) => {
-        labels[index] = index.toString();
-      });
+//console.log(chartData.data)           
+let labels = [];        
+chartData1.data.forEach((value, index) => {
+  labels[index] = index.toString();
+});
+chartData2.data.forEach((value, index) => {
+  labels[index] = index.toString();
+});
 
-      console.log(labels);
+//console.log(labels);
 
-      const myChart = new Chart(          //Ajout de la variable constante Mychart 
-        document.getElementById('myChart'),
-        {
-          type: 'line',
-          data: {
-            labels: labels,
-            datasets: [{
-              label: 'My First dataset',
-              backgroundColor: 'rgb(255, 99, 132)',
-              borderColor: 'rgb(255, 99, 132)',
-              data: chartData.data
-            }]
-          }
-        }
-      );
+const myChart = new Chart(          //Ajout de la variable constante Mychart 
+  document.getElementById('myChart'),
+  {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'My First dataset',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: chartData1.data
+      },
+    
+      {
+        label: 'Second dataset',
+        backgroundColor: 'rgb(101, 162, 108)',
+        borderColor: 'rgb(101, 162, 108)',
+        data: chartData2.data
+      }]
     }
-  </script>
+  }
+);
+}
 
+
+  
+
+</script>
 
 </body>
 
