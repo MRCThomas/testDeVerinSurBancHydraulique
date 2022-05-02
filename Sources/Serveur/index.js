@@ -2,10 +2,13 @@
 const { response } = require('express');
 const express = require('express');
 const cors = require('cors');
-const db = require("./services/db.js")
-const WebSocket = require('ws');
+const db = require("./services/db.js");
 const jwt = require('jsonwebtoken');
+
 const app = express();
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
+
 app.use(cors());
 app.use(express.static('./../Application Web'), express.json()); //
 
@@ -46,24 +49,14 @@ app.use(function (req, res, next) {
     res.status(404).send("Désolé cette page n'existe pas, veuillez reformuler votre demande)");
 });
 
-// Lance le serveur sur le port 3000
-const server = app.listen(3000, function () {
-    console.log('example app listening on port 3000.');
-});
 
-const wsServer = new WebSocket.Server({noServer : true, path :"/ws"});
+// Lance le serveur sur le port 3000 (WS)
+io.on('connection', (socket) =>{
+    console.log(`Connecté au client ${socket.id}`)
+ })
 
-server.on('upgrade', (request, socket, head) => {
-    wsServer.handleUpgrade(request, socket, head, (websocket) => {
-        wsServer.emit("connection", websocket, request);
-        wsServer.on('message',(data) => {
-            console.log(data)
-        })
-        
-        wsServer.on('connexion',(socket, req )=>{
-            console.log('socket',socket);
-            console.log('req',req);
-        })
-    });
+// Lance le serveur sur le port 3000 (HTTP)
+server.listen(3000, function () {
+    console.log('API TestVerin démarrée et disponible à l\'adresse : http://localhost:3000.');
 });
 
