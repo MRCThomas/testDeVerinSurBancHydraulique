@@ -1,11 +1,13 @@
 import jwt from 'jsonwebtoken';
 
 export default function authMiddleware (req, res, next)  {
-    if(!req.header.authorization) {
+    console.log(req.headers);
+    if(!req.headers.authorization) {
         return next(401);
     }
+    const token = req.headers.authorization.split(' ')[1];
     
-    jwt.verify(req.header.authorization, 'secret', function (err, decoded) {
+    jwt.verify(token, 'secret', function (err, decoded) {
             if (err) {
                 return next({
                     name: 'JsonWebTokenError',
@@ -13,6 +15,7 @@ export default function authMiddleware (req, res, next)  {
                 })
             }
             req.app.locals.user = decoded;
+            return next();
         }
     )
 }
