@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./js/socket.js" defer></script>
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Tuto WebSocket avec Socket.io et NodeJS par PracticalProgramming.fr</title>
 </head>
+
 <body>
-    
+  <H1>Hello</H1>
+  <ul id="list">
+    <li>Premier élément</li>
+  </ul>
+
+  <!-- CREATION SOCKET -->
+  <script src="./js/socket.io.js"></script>
+  <script>
+    const socket = io();
+  </script>
+
+  <!-- FIN CODE SOCKET -->
 </body>
 </html>
