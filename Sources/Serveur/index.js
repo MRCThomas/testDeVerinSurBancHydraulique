@@ -61,10 +61,14 @@ const wsServer = new WebSocket.Server({noServer : true, path :"/ws"});
 server.on('upgrade', (request, socket, head) => {
     wsServer.handleUpgrade(request, socket, head, (websocket) => {
         wsServer.emit("connection", websocket, request);
+        wsServer.on('message',(data) => {
+            console.log(data)
+        })
+        
+        wsServer.on('connexion',(socket, req )=>{
+            console.log('socket',socket);
+            console.log('req',req);
+        })
     });
 });
 
-wsServer.on('connexion',(socket, req )=>{
-    console.log('socket',socket);
-    console.log('req',req);
-})
