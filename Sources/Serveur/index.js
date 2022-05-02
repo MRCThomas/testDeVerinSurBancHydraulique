@@ -1,15 +1,15 @@
 // Création d'une instance d'express
-const { response } = require('express');
-const express = require('express');
-const cors = require('cors');
-const db = require("./services/db.js")
-const WebSocket = require('ws');
-const jwt = require('jsonwebtoken');
-const app = express();
+import express from 'express';
+import cors from 'cors';
+import db from "./services/db.js";
+import WebSocket from 'ws';
+import jwt from 'jsonwebtoken';
+import authMiddleware from './authentification-middleware.js';
+const app =  express();
 app.use(cors());
 app.use(express.static('./../Application Web'), express.json()); //
 
-app.get('/api/affaire/fake' , function (req, res, next) {   // Route de simulation de données concernants les affaires 
+app.get('/api/affaire/fake' , authMiddleware, function (req, res, next) {   // Route de simulation de données concernants les affaires 
     const data = []
     for(let i = 0; i < 50;i++){
         data.push(Math.random() * 100);
@@ -40,13 +40,7 @@ app.post('/api/login/', function (req, res, next) {     //Route pour vérifier l
         return res.status(403).send();
     }
 });
-app.get('/affaireControleur.html', function (req, res, next) {
-    jwt.verify(token, 'secret', function(error, decoded){
-        console.log(res.status);
-        return res.status(200).send();
-    })
-    return res.status(403).send();
-})
+
 // Si la page n'est pas reconnu
 app.use(function (req, res, next) {
     res.status(404).send("Désolé cette page n'existe pas, veuillez reformuler votre demande)");
@@ -56,16 +50,3 @@ app.use(function (req, res, next) {
 const server = app.listen(3000, function () {
     console.log('example app listening on port 3000.');
 });
-
-const wsServer = new WebSocket.Server({noServer : true, path :"/ws"});
-
-server.on('upgrade', (request, socket, head) => {
-    wsServer.handleUpgrade(request, socket, head, (websocket) => {
-        wsServer.emit("connection", websocket, request);
-    });
-});
-
-wsServer.on('connexion',(socket, req )=>{
-    console.log('socket',socket);
-    console.log('req',req);
-})
