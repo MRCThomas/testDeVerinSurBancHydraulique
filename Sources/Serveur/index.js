@@ -13,8 +13,8 @@ const wsServeur = new io.Server(serveur);
 
 app.use(cors());
 app.use(express.static('./../Application Web'), express.json()); //
-
-app.get('/api/affaire/fake' , authMiddleware, function (req, res, next) {   // Route de simulation de données concernants les affaires 
+app.use(authMiddleware)
+app.get('/affaire/fake' ,function (req, res, next) {   // Route de simulation de données concernants les affaires 
     const data = []
     for(let i = 0; i < 50;i++){
         data.push(Math.random() * 100);
@@ -22,12 +22,6 @@ app.get('/api/affaire/fake' , authMiddleware, function (req, res, next) {   // R
     res.json({data});
 })
 
-app.get('/api/affaire/:id', async (req, res, next) =>  {
-    const users = await db.query("SELECT * from users;");
-    console.log(users);
-    const id = req.params.id;
-    res.json(users);
-})
 
 app.post('/api/login/', function (req, res, next) {     //Route pour vérifier la connexion du contrôleur
     const users = [                                     //Simulation de la table 'Users' de la base de données
