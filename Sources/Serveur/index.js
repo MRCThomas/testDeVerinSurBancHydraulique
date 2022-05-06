@@ -1,4 +1,5 @@
 // Création d'une instance d'express
+
 import express from 'express';
 import cors from 'cors';
 import { query } from "./services/db.js";
@@ -14,12 +15,13 @@ app.use(cors());
 app.use(express.static('./../Application Web'), express.json()); //
 app.use(authMiddleware)
 
+
 app.get('/affaire/fake' ,function (req, res, next) {   // Route de simulation de données concernants les affaires 
     const data = []
-    for(let i = 0; i < 50;i++){
-        data.push(Math.random() * 100);
-    }
-    res.json({data});
+    const essai = db.query("SELECT * from essai")  // On reçois tout les donnés d'une Affaires 
+        result:
+             result()
+    res.json({essai});
 })
 
 app.get('/api/testDB', async (req,res,next) => {
@@ -28,6 +30,7 @@ app.get('/api/testDB', async (req,res,next) => {
         'hello': 'world',
         'result': result
     });
+
 })
 
 app.get('/api/newAffaire', async (req, res, next) => {
