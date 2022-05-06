@@ -4,7 +4,7 @@ requestHeader.append("content-type", "application/json");
 let userInput = document.getElementById("username");
 let pwdInput = document.getElementById("password");
 let connexionInput = document.getElementById("connexion");
-
+let addAffaire = document.getElementById("addAffaireButton");
 connexionInput.addEventListener("click", (e) => {
     e.preventDefault();
     
@@ -27,4 +27,7 @@ connexionInput.addEventListener("click", (e) => {
         })
 });
 
+addAffaire.addEventListener("click", (e) => {
 
+    
+})
