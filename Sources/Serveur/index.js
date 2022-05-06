@@ -30,14 +30,20 @@ app.get('/api/testDB', async (req,res,next) => {
     });
 })
 
+app.get('/api/newAffaire', async (req, res, next) => {
+    const result = await query(`INSERT INTO affaire `);
+    res.json({
+        'result': result
+    })
+})
+
 app.post('/api/login/',  async (req, res, next) =>  {     //Route pour vérifier la connexion du contrôleur
-    console.log(`SELECT * FROM users WHERE Identifiants = '${req.body.username}';`);
-    const user = await query(`SELECT * FROM users WHERE Identifiants = ${req.body.username};`)
-    console.log(user);
-    if(!user){
-        return res.status(403).send();                  //Retourne 403 pour une connexion échouée
+    const user = await query(`SELECT * FROM users WHERE Identifiants = '${req.body.username}';`);
+    console.log(user.length);
+    if(!user.length >= 1){
+        return res.status(403).send();              //Retourne 403 pour une connexion échouée
     }
-    if(user.pwd === req.body.pwd){
+    if(user[0].MDP === req.body.pwd){
         let token = jwt.sign({ user: user}, 'secret'); //Délivre un token d'authentification
         return res.status(200).json({"access_token" : token});             //Retourne 200 pour une connexion réussie
     }else{
