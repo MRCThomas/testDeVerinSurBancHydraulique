@@ -21,11 +21,11 @@
   <script>
    
 
-   fetch("http://127.0.0.1:3000/api/affaire") //Promesse de reponse 
+   fetch("http://127.0.0.1:3000/api/essai") //Promesse de reponse 
       .then((response) => {             //Dés qu'il la reponse il la transforme en json
         response.json()
           .then((data) => {
-            fetch("http://127.0.0.1:3000/api/affaire")
+            fetch("http://127.0.0.1:3000/api/essai")
             .then((response2) => {
               response2.json().then(data2 => {
                 drawChart(data, data2);            //drawChart et egale a data

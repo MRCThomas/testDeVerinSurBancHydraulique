@@ -33,6 +33,14 @@ app.get('/api/testDB', async (req,res,next) => {
 
 })
 
+app.get('/api/essai', async (req,res,next) => {
+    const result = await query(`SELECT * FROM essais;`);
+    res.json({ 
+        'result': result
+    });
+
+})
+
 app.post('/api/login/',  async (req, res, next) =>  {     //Route pour vérifier la connexion du contrôleur
     console.log(`SELECT * FROM users WHERE Identifiants = '${req.body.username}';`);
     const user = await query(`SELECT * FROM users WHERE Identifiants = ${req.body.username};`)
