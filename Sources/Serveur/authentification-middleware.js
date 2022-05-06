@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 export default function authMiddleware (req, res, next)  {
-    if(req.url == "/"){
+    if(req.url == "/" || req.url.match("login")){
         return next();
     }
     console.log(req.headers);
