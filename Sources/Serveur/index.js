@@ -3,7 +3,8 @@ const { response } = require('express');
 var express = require('express');
 var cors = require('cors');
 var app = express();
-const db = require("./services/db.js")
+const db = require("./services/db.js");
+const { json } = require('express/lib/response');
 app.use(cors());
 app.use(express.static('./../Application Web'), express.json()); //
 
@@ -13,13 +14,14 @@ app.post('/welcome', function (req, res) {
         "hello": req.body.name
     })
 })
-app.get('/api/affaire/fake' , function (req, res, next) {
+app.get('/api/essai' , function (req, res, next) {
     const data = []
-    for(let i = 0; i < 50;i++){
-        data.push(Math.random() * 100);
-    }
-    res.json({data});
+    const essai = db.query("SELECT * from essai")  // On reçois tout les donnés d'une Affaires 
+        result:
+             result()
+    res.json({essai});
 })
+
 
 app.get('/api/affaire/:id', function (req, res, next) {
     const affaires = db.query("SELECT * from affaire;")
