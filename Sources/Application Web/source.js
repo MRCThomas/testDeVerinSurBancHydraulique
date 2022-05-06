@@ -4,7 +4,6 @@ requestHeader.append("content-type", "application/json");
 let userInput = document.getElementById("username");
 let pwdInput = document.getElementById("password");
 let connexionInput = document.getElementById("connexion");
-
 connexionInput.addEventListener("click", (e) => {
     e.preventDefault();
     
@@ -14,9 +13,11 @@ connexionInput.addEventListener("click", (e) => {
     })})
         .then(response => {
             if(response.status == "200"){
+                let token = response.json.token;
+                localStorage.setItem("Authorization", 'Bearer ' + token);
                 window.location.href = "http://localhost:3000/affaireControleur.html"; //Redirection de page
             }else{
-
+                //Afficher un message d'erreur
             }
         })
     
@@ -24,5 +25,3 @@ connexionInput.addEventListener("click", (e) => {
             console.log(error);
         })
 });
-
-
