@@ -5,19 +5,53 @@ const cors = require('cors');
 const db = require("./services/db.js")
 const WebSocket = require('ws');
 const jwt = require('jsonwebtoken');
+const path = require('path');
 const app = express();
+const fs = require('fs');
 app.use(cors());
-app.use(express.static('./../Application Web'), express.json()); //
 
-app.get('/api/affaire/fake' , function (req, res, next) {
-    const data = []
-    for(let i = 0; i < 50;i++){
-        data.push(Math.random() * 100);
-    }
-    res.json({data});
+
+app.get('/sauvegarde', (req, res, next) => {
+    const DB_USER = "root"
+    const DB_PWD = "root"
+    const DB_HOST = "127.0.0.1"
+    const dirPath = `./sauvegardes/${new Date().toLocaleDateString().replaceAll('/', '-')}`
+    fs.mkdirSync(dirPath)
+    const { exec } = require("child_process");
+    const command = `mysqldump -u ${DB_USER} -p${DB_PWD} testverins -h ${DB_HOST}`
+    console.log(command)
+    exec(`${command} > ${dirPath}/testverins.sql`, (error, stdout, stderr) => {
+        if (error) {
+            next(error)
+            return;
+        }
+        if (stderr) {
+            console.error(`stderr: ${stderr}`);
+        }
+
+        const sentFilePath = path.join(__dirname,dirPath);
+        res.sendFile(`${sentFilePath}/testverins.sql`, function (err) {
+            console.log('ici !')
+            if (err) {
+                next(err);
+            } else {
+                console.log('Sent:');
+            }
+        });
+    })
 })
 
-app.get('/api/affaire/:id', async (req, res, next) =>  {
+app.use(express.static('./../Application Web'), express.json()); //
+
+app.get('/api/affaire/fake', function (req, res, next) {
+    const data = []
+    for (let i = 0; i < 50; i++) {
+        data.push(Math.random() * 100);
+    } -
+        res.json({ data });
+})
+
+app.get('/api/affaire/:id', async (req, res, next) => {
     const users = await db.query("SELECT * from users;");
     console.log(users);
     const id = req.params.id;
@@ -26,17 +60,17 @@ app.get('/api/affaire/:id', async (req, res, next) =>  {
 //Route API pour vérifier la connexion du contrôleur
 app.post('/api/login/', function (req, res, next) {
     const users = [
-        {username: "root", pwd: "root"},
-        {username: "admin", pwd: "1234"},
+        { username: "root", pwd: "root" },
+        { username: "admin", pwd: "1234" },
     ];
-    const found = users.find(u=>u.username === req.body.username);
-    if(!found){
+    const found = users.find(u => u.username === req.body.username);
+    if (!found) {
         return res.status(403).send();
     }
-    if(found.pwd === req.body.pwd){
-        let token = jwt.sign({ user: found}, 'secret');
+    if (found.pwd === req.body.pwd) {
+        let token = jwt.sign({ user: found }, 'secret');
         return res.status(200).json(token);
-    }else{
+    } else {
         return res.status(403).send();
     }
 });
@@ -51,7 +85,7 @@ const server = app.listen(3000, function () {
     console.log('example app listening on port 3000.');
 });
 
-const wsServer = new WebSocket.Server({noServer : true, path :"/ws"});
+const wsServer = new WebSocket.Server({ noServer: true, path: "/ws" });
 
 server.on('upgrade', (request, socket, head) => {
     wsServer.handleUpgrade(request, socket, head, (websocket) => {
@@ -59,7 +93,7 @@ server.on('upgrade', (request, socket, head) => {
     });
 });
 
-wsServer.on('connexion',(socket, req )=>{
-    console.log('socket',socket);
-    console.log('req',req);
+wsServer.on('connexion', (socket, req) => {
+    console.log('socket', socket);
+    console.log('req', req);
 })
