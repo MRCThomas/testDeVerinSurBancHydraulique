@@ -1,4 +1,4 @@
-// Création d'une instance d'express
+
 
 import express from 'express';
 import cors from 'cors';
@@ -12,6 +12,38 @@ const serveur = Server(app);
 const wsServeur = new io.Server(serveur);
 
 app.use(cors());
+
+
+app.get('/sauvegarde', (req, res, next) => {
+    const DB_USER = "root"
+    const DB_PWD = "root"
+    const DB_HOST = "127.0.0.1"
+    const dirPath = `./sauvegardes/${new Date().toLocaleDateString().replaceAll('/', '-')}`
+    fs.mkdirSync(dirPath)
+    const { exec } = require("child_process");
+    const command = `mysqldump -u ${DB_USER} -p${DB_PWD} testverins -h ${DB_HOST}`
+    console.log(command)
+    exec(`${command} > ${dirPath}/testverins.sql`, (error, stdout, stderr) => {
+        if (error) {
+            next(error)
+            return;
+        }
+        if (stderr) {
+            console.error(`stderr: ${stderr}`);
+        }
+
+        const sentFilePath = path.join(__dirname,dirPath);
+        res.sendFile(`${sentFilePath}/testverins.sql`, function (err) {
+            console.log('ici !')
+            if (err) {
+                next(err);
+            } else {
+                console.log('Sent:');
+            }
+        });
+    })
+})
+
 app.use(express.static('./../Application Web'), express.json()); //
 app.use(authMiddleware)
 
@@ -60,12 +92,12 @@ app.use(function (req, res, next) {
 });
 
 
-// Lance le serveur sur le port 3000 (WS)
-wsServeur.on('connection', (socket) =>{
-    console.log(`Connecté au client ${socket.id}`)
- })
-
 // Lance le serveur sur le port 3000 (HTTP)
 serveur.listen(3000, function () {
     console.log('API TestVerin démarrée et disponible à l\'adresse : http://localhost:3000.');
 });
+
+wsServeur.on('connexion', (socket, req) => {
+    console.log('socket', socket);
+    console.log('req', req);
+})
