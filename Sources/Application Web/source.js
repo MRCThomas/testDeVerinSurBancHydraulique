@@ -13,9 +13,11 @@ connexionInput.addEventListener("click", (e) => {
     })})
         .then(response => {
             if(response.status == "200"){
-                let token = response.json.token;
-                localStorage.setItem("Authorization", 'Bearer ' + token);
-                window.location.href = "http://localhost:3000/affaireControleur.html"; //Redirection de page
+                console.log(response);
+                let token = response.json().then((token) => {
+                    localStorage.setItem("Authorization", token.access_token);
+                    window.location.href = "http://localhost:3000/affaireControleur.html"; //Redirection de page
+                });
             }else{
                 //Afficher un message d'erreur
             }

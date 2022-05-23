@@ -1,5 +1,3 @@
-
-
 import express from 'express';
 import cors from 'cors';
 import { query } from "./services/db.js";
@@ -12,7 +10,6 @@ const serveur = Server(app);
 const wsServeur = new io.Server(serveur);
 
 app.use(cors());
-
 
 app.get('/sauvegarde', (req, res, next) => {
     const DB_USER = "root"
@@ -47,7 +44,6 @@ app.get('/sauvegarde', (req, res, next) => {
 app.use(express.static('./../Application Web'), express.json()); //
 app.use(authMiddleware)
 
-
 app.get('/affaire/fake' ,function (req, res, next) {   // Route de simulation de données concernants les affaires 
     const data = []
     const essai = db.query("SELECT * from essai")  // On reçois tout les donnés d'une Affaires 
@@ -66,15 +62,28 @@ app.get('/api/testDB', async (req,res,next) => {
 })
 
 app.get('/api/newAffaire', async (req, res, next) => {
-    const result = await query(`INSERT INTO affaire `);
-    res.json({
-        'result': result
-    })
-})
+    try {
+        const result = await query(`INSERT INTO affaire `);
+        console.log(result);
+        res.json({
+            'result': result
+        })
+    } catch (error) {
+        console.error(error);
+    }
+});
+
+app.get('/api/afficheAffaires', async (req, res, next) => {
+    try {
+        const affaires = await query('SELECT * FROM affaire');
+        return res.json(affaires);
+    } catch (error) {
+        console.error(error);
+    }
+});
 
 app.post('/api/login/',  async (req, res, next) =>  {     //Route pour vérifier la connexion du contrôleur
     const user = await query(`SELECT * FROM users WHERE Identifiants = '${req.body.username}';`);
-    console.log(user.length);
     if(!user.length >= 1){
         return res.status(403).send();              //Retourne 403 pour une connexion échouée
     }
