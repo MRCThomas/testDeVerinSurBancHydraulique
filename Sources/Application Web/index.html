@@ -32,9 +32,14 @@
         </div>
     </form>
       <!-- CREATION SOCKET -->
-  <script src="./js/socket.io.js"></script>
+  <!-- <script src="./js/socket.io.js"></script> -->
   <script>
-    const socket = io();
+      try {
+        const socket = new WebSocket('ws://localhost:3000')      
+      } catch (error) {
+          alert(error.message)
+      }
+    
   </script>
 
   <!-- FIN CODE SOCKET -->
