@@ -1,6 +1,7 @@
 let addAffaire = document.getElementById("addAffaireButton");
 let listeAffaires = document.getElementById("affaires");
 
+
 function createListeElement(affaires) {
     console.log(affaires)
     let affaireListItem = document.createElement('li');
@@ -19,6 +20,7 @@ function createListeElement(affaires) {
     images.forEach(src => {
         let img = document.createElement('img');
         img.src=src;
+        img.classList.add('modifIcons');
         essaiListItem.appendChild(img);
     })
     unorderedList.appendChild(essaiListItem);
