@@ -52,15 +52,6 @@ app.get('/affaire/fake' ,function (req, res, next) {   // Route de simulation de
     res.json({essai});
 })
 
-app.get('/api/testDB', async (req,res,next) => {
-    const result = await query(`SELECT * FROM clients;`);
-    res.json({ 
-        'hello': 'world',
-        'result': result
-    });
-
-})
-
 app.get('/api/newAffaire', async (req, res, next) => {
     try {
         const result = await query(`INSERT INTO affaire `);
@@ -73,7 +64,7 @@ app.get('/api/newAffaire', async (req, res, next) => {
     }
 });
 
-app.get('/api/afficheAffaires', async (req, res, next) => {
+app.get('/api/getTableAffaires', async (req, res, next) => {
     try {
         const tableAffaires = await query('SELECT * FROM affaire');
         return res.json(tableAffaires);
@@ -82,7 +73,7 @@ app.get('/api/afficheAffaires', async (req, res, next) => {
     }
 });
 
-app.get('/api/afficheEssais', async (req, res, next) => {
+app.get('/api/getTableEssais', async (req, res, next) => {
     try{
         const tableEssais = await query('SELECT * FROM essais');
         return res.json(tableEssais);
