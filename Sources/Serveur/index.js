@@ -75,12 +75,21 @@ app.get('/api/newAffaire', async (req, res, next) => {
 
 app.get('/api/afficheAffaires', async (req, res, next) => {
     try {
-        const affaires = await query('SELECT * FROM affaire');
-        return res.json(affaires);
+        const tableAffaires = await query('SELECT * FROM affaire');
+        return res.json(tableAffaires);
     } catch (error) {
         console.error(error);
     }
 });
+
+app.get('/api/afficheEssais', async (req, res, next) => {
+    try{
+        const tableEssais = await query('SELECT * FROM essais');
+        return res.json(tableEssais);
+    } catch (error) {
+        console.error(error);
+    }
+})
 
 app.post('/api/login/',  async (req, res, next) =>  {     //Route pour vérifier la connexion du contrôleur
     const user = await query(`SELECT * FROM users WHERE Identifiants = '${req.body.username}';`);
