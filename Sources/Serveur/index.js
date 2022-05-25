@@ -1,8 +1,6 @@
-// Création d'une instance d'express
 import express from 'express';
 import cors from 'cors';
-import db from "./services/db.js";
-import WebSocket from 'ws';
+import { query } from "./services/db.js";
 import jwt from 'jsonwebtoken';
 import authMiddleware from './authentification-middleware.js';
 import { Server }  from 'http';
@@ -12,35 +10,86 @@ const serveur = Server(app);
 const wsServeur = new io.Server(serveur);
 
 app.use(cors());
+
+app.get('/sauvegarde', (req, res, next) => {
+    const DB_USER = "root"
+    const DB_PWD = "root"
+    const DB_HOST = "127.0.0.1"
+    const dirPath = `./sauvegardes/${new Date().toLocaleDateString().replaceAll('/', '-')}`
+    fs.mkdirSync(dirPath)
+    const { exec } = require("child_process");
+    const command = `mysqldump -u ${DB_USER} -p${DB_PWD} testverins -h ${DB_HOST}`
+    console.log(command)
+    exec(`${command} > ${dirPath}/testverins.sql`, (error, stdout, stderr) => {
+        if (error) {
+            next(error)
+            return;
+        }
+        if (stderr) {
+            console.error(`stderr: ${stderr}`);
+        }
+
+        const sentFilePath = path.join(__dirname,dirPath);
+        res.sendFile(`${sentFilePath}/testverins.sql`, function (err) {
+            console.log('ici !')
+            if (err) {
+                next(err);
+            } else {
+                console.log('Sent:');
+            }
+        });
+    })
+})
+
 app.use(express.static('./../Application Web'), express.json()); //
+app.use(authMiddleware)
 
-app.get('/api/affaire/fake' , authMiddleware, function (req, res, next) {   // Route de simulation de données concernants les affaires 
+app.get('/affaire/fake' ,function (req, res, next) {   // Route de simulation de données concernants les affaires 
     const data = []
-    for(let i = 0; i < 50;i++){
-        data.push(Math.random() * 100);
-    }
-    res.json({data});
+    const essai = db.query("SELECT * from essai")  // On reçois tout les donnés d'une Affaires 
+        result:
+             result()
+    res.json({essai});
 })
 
-app.get('/api/affaire/:id', async (req, res, next) =>  {
-    const users = await db.query("SELECT * from users;");
-    console.log(users);
-    const id = req.params.id;
-    res.json(users);
+app.get('/api/testDB', async (req,res,next) => {
+    const result = await query(`SELECT * FROM clients;`);
+    res.json({ 
+        'hello': 'world',
+        'result': result
+    });
+
 })
 
-app.post('/api/login/', function (req, res, next) {     //Route pour vérifier la connexion du contrôleur
-    const users = [                                     //Simulation de la table 'Users' de la base de données
-        {username: "root", pwd: "root"},
-        {username: "admin", pwd: "1234"},
-    ];
-    const found = users.find(u=>u.username === req.body.username);
-    if(!found){
-        return res.status(403).send();                  //Retourne 403 pour une connexion échouée
+app.get('/api/newAffaire', async (req, res, next) => {
+    try {
+        const result = await query(`INSERT INTO affaire `);
+        console.log(result);
+        res.json({
+            'result': result
+        })
+    } catch (error) {
+        console.error(error);
     }
-    if(found.pwd === req.body.pwd){
-        let token = jwt.sign({ user: found}, 'secret'); //Délivre un token d'authentification
-        return res.status(200).json(token);             //Retourne 200 pour une connexion réussie
+});
+
+app.get('/api/afficheAffaires', async (req, res, next) => {
+    try {
+        const affaires = await query('SELECT * FROM affaire');
+        return res.json(affaires);
+    } catch (error) {
+        console.error(error);
+    }
+});
+
+app.post('/api/login/',  async (req, res, next) =>  {     //Route pour vérifier la connexion du contrôleur
+    const user = await query(`SELECT * FROM users WHERE Identifiants = '${req.body.username}';`);
+    if(!user.length >= 1){
+        return res.status(403).send();              //Retourne 403 pour une connexion échouée
+    }
+    if(user[0].MDP === req.body.pwd){
+        let token = jwt.sign({ user: user}, 'secret'); //Délivre un token d'authentification
+        return res.status(200).json({"access_token" : token});             //Retourne 200 pour une connexion réussie
     }else{
         return res.status(403).send();
     }
@@ -52,12 +101,12 @@ app.use(function (req, res, next) {
 });
 
 
-// Lance le serveur sur le port 3000 (WS)
-wsServeur.on('connection', (socket) =>{
-    console.log(`Connecté au client ${socket.id}`)
- })
-
 // Lance le serveur sur le port 3000 (HTTP)
 serveur.listen(3000, function () {
     console.log('API TestVerin démarrée et disponible à l\'adresse : http://localhost:3000.');
 });
+
+wsServeur.on('connexion', (socket, req) => {
+    console.log('socket', socket);
+    console.log('req', req);
+})
