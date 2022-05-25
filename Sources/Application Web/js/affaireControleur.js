@@ -1,6 +1,6 @@
 let addAffaire = document.getElementById("addAffaireButton");
 let listeAffaires = document.getElementById("affaires");
-
+let logOffButton = document.getElementById("logOffIcon");
 
 function createListeElement(affaires) {
     console.log(affaires)
@@ -35,6 +35,7 @@ fetch("http://localhost:3000/api/afficheAffaires", {
 })
     .then(response => {
         response.json().then((json) => {
+            console.log(json);
             json.forEach(affaire => {
                 listeAffaires.appendChild(createListeElement(affaire))
             });
@@ -42,6 +43,15 @@ fetch("http://localhost:3000/api/afficheAffaires", {
         })
     })
 
+fetch("http://localhost:3000/API/afficheEssais", {
+    "headers": { "authorization": `Bearer ${localStorage.getItem("Authorization")}` }
+})
+    .then(response => {
+        response.json().then((json) => {
+            console.log(json);
+        })
+    })
+    
 addAffaire.addEventListener("click", (e) => {
 
     if (confirm("Etes vous sure de vouloir créer une affaire ?")) {
@@ -52,3 +62,10 @@ addAffaire.addEventListener("click", (e) => {
     }
 })
 
+logOffButton.addEventListener("click", (e) => {
+
+    if(confirm("Etes vous sure de vouloir vous déconnecter ?")) {
+        req.headers.authorization = null;
+        window.location.href = 'http://localhost:3000';
+    }
+})
