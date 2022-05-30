@@ -52,13 +52,17 @@ app.get('/affaire/fake' ,function (req, res, next) {   // Route de simulation de
     res.json({essai});
 })
 
-app.get('/api/newAffaire', async (req, res, next) => {
+app.post('/api/newAffaire', async (req, res, next) => {
+    
     try {
-        const result = await query(`INSERT INTO affaire `);
-        console.log(result);
-        res.json({
-            'result': result
-        })
+        const IdUser = await query(`SELECT IdUser FROM users WHERE Identifiants = '${req.body.user}';`)
+        console.log(req.body.user);
+        //const result = await query("INSERT INTO affaire (`IdClient`,`IdUser`) VALUES ('1','"+IdUser+"');");
+        //console.log(result);
+        // res.json({
+        //     'result': result
+        // })
+
     } catch (error) {
         console.error(error);
     }
@@ -74,6 +78,7 @@ app.get('/api/getTableAffaires', async (req, res, next) => {
 });
 
 app.get('/api/getTableEssais', async (req, res, next) => {
+
     try{
         const tableEssais = await query('SELECT * FROM essais');
         return res.json(tableEssais);
@@ -83,6 +88,7 @@ app.get('/api/getTableEssais', async (req, res, next) => {
 })
 
 app.post('/api/login/',  async (req, res, next) =>  {     //Route pour vérifier la connexion du contrôleur
+
     const user = await query(`SELECT * FROM users WHERE Identifiants = '${req.body.username}';`);
     if(!user.length >= 1){
         return res.status(403).send();              //Retourne 403 pour une connexion échouée
