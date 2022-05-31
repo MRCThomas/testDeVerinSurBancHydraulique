@@ -4,7 +4,7 @@ requestHeader.append("content-type", "application/json");
 let userInput = document.getElementById("username");
 let pwdInput = document.getElementById("password");
 let connexionInput = document.getElementById("connexion");
-let ipAdress = "192.168.65.187"; // IP du poste sur lequel le code est executer
+let ipAdress = "localhost"; // IP du poste sur lequel le code est executer
 connexionInput.addEventListener("click", (e) => {
     e.preventDefault();
     
