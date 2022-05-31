@@ -117,7 +117,7 @@ li a {
 }
 
 .dropdown-content > li:hover {
-  background-color: rgba(50, 50, 50, 0.2);
+  background-color: rgba(211, 211, 211, 0.2);
 }
 
 .dropdown-content > li > a {
@@ -129,7 +129,7 @@ li a {
 }
 
 .dropdown-content > li:hover > a {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 button{
@@ -148,4 +148,44 @@ button{
 button:hover{
   background-color: rgb(228, 228, 228);
   transition: all 0.6s ease-in-out;
+}
+
+.modifIcons {
+  padding-left: 20px;
+}
+
+.modifIcons:hover {
+  cursor : pointer;
+}
+
+.divMainTitle {
+  width: 100%;
+  background-color: rgba(133, 133, 133, 0.299);
+  height: auto;
+  padding: 15px;
+  margin-bottom: 80px;
+  position: sticky;
+}
+
+#mainTitle {
+  text-align: center;
+}
+
+.divMainTitle #logOffIcon {
+  position: fixed;
+  height: 30px;
+  width: 30px;
+  float: right;
+  right:5%;
+  margin-bottom: 55px;
+  margin-top: -35px;
+  padding: 4px;
+}
+
+#logOffIcon:hover {
+  cursor: pointer;
+  background-color: rgb(173, 173, 173);
+  transition: all 0.6s ease-in-out;
+  border-radius: 50%;
+  align-items: center;
 }
