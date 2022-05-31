@@ -68,7 +68,7 @@ app.post('/api/newAffaire', async (req, res, next) => {
     }
 });
 
-app.get('/api/getTableAffaires', async (req, res, next) => {    //Route pour recup affaire
+app.get('/api/getTableAffaires', async (req, res, next) => {    //Route pour recupérer affaire
     try {
         const tableAffaires = await query('SELECT * FROM affaire');
         return res.json(tableAffaires);
