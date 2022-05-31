@@ -1,4 +1,4 @@
-const config = {
+export default config = {
     db: {
       /* don't expose password or any sensitive info, done only for demo */
       host: "127.0.0.1",
@@ -8,4 +8,3 @@ const config = {
     },
     listPerPage: 10,
   };
-  module.exports = config;

@@ -6,39 +6,47 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>     
-  <a href="test2.html">Essai 2</a></href>
   <title>Affaires</title>
 </head>
 
 <body>
 
-
-
-
   <div>
     <canvas id="myChart"></canvas>
+    <canvas id="myChart2"></canvas>
+   
   </div>
 
 
   <script>
+   
 
-
-    fetch("http://192.168.65.187:3000/api/affaire/fake") //Promesse de reponse 
+   fetch("http://127.0.0.1:3000/api/affaire") //Promesse de reponse 
       .then((response) => {             //Dés qu'il la reponse il la transforme en json
-        console.log('response : ', response);
         response.json()
-          .then((data) => {                   //Il attend ensuite la reponse de data qui vient en lancant le fonction data 
-            console.log('data : ', data);
-            drawChart(data);            //drawChart et egale a data
+          .then((data) => {
+            fetch("http://127.0.0.1:3000/api/affaire")
+            .then((response2) => {
+              response2.json().then(data2 => {
+                drawChart(data, data2);            //drawChart et egale a data
+              })
+            }) //Promesse de reponse 
+            //Il attend ensuite la reponse de data qui vient en lancant le fonction data 
           });
       });
 
 
-    function drawChart(chartData) {                         //ajout de la fonction drawCHart
+    function drawChart(chartData1,chartData2,charData3) {                         //ajout de la fonction drawCHart
 
-      console.log(chartData.data)           
+      //console.log(chartData.data)           
       let labels = [];        
-      chartData.data.forEach((value, index) => {
+      chartData1.data.forEach((value, index) => {
+        labels[index] = index.toString();
+      });
+      chartData2.data.forEach((value, index) => {
+        labels[index] = index.toString();
+      });
+      chartData3.data.forEach((value, index) => {
         labels[index] = index.toString();
       });
 
@@ -51,17 +59,55 @@
           data: {
             labels: labels,
             datasets: [{
-              label: 'My First dataset',
+              label: 'Entrer',
               backgroundColor: 'rgb(255, 99, 132)',
               borderColor: 'rgb(255, 99, 132)',
-              data: chartData.data
+              data: chartData1.data
+            },
+          
+            {
+              label: 'Sortie',
+              backgroundColor: 'rgb(101, 162, 108)',
+              borderColor: 'rgb(101, 162, 108)',
+              data: chartData2.data
             }]
-          }
+          },
+
         }
       );
-    }
-  </script>
+   
+   
+      const myChart2 = new Chart(          //Ajout de la variable constante Mychart2 qui creer un deuxiéme graphique
+        document.getElementById('myChart2'),
+        {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'Rendement',
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data:chartData3.data,
+            },
+          
+            ]
+          },
 
+        }
+      );
+   
+   
+   
+   
+   
+    }
+
+
+
+
+
+ 
+ </script>
 
 </body>
 

@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Serveur HTTP et Websocket",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --watch index.js"
+    "start": "nodemon --watch . index.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.15",
+    "socket.io": "^4.5.0",
     "ws": "^8.5.0"
   }
 }
