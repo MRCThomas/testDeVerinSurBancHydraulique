@@ -1,13 +1,13 @@
 import express from 'express';
+import * as http from 'http';
+import { WebSocketServer }  from 'ws';
+
 import cors from 'cors';
 import { query } from "./services/db.js";
 import jwt from 'jsonwebtoken';
 import authMiddleware from './authentification-middleware.js';
-import { Server }  from 'http';
-import * as io from 'socket.io';
+
 const app = express();
-const serveur = Server(app);
-const wsServeur = new io.Server(serveur);
 
 app.use(cors());
 
@@ -42,7 +42,7 @@ app.get('/sauvegarde', (req, res, next) => {
 })
 
 app.use(express.static('./../Application Web'), express.json()); //
-app.use(authMiddleware)
+//app.use(authMiddleware)
 
 app.get('/affaire/fake' ,function (req, res, next) {   // Route de simulation de données concernants les affaires 
     const data = []
@@ -88,10 +88,10 @@ app.get('/api/getTableEssais', async (req, res, next) => {
 })
 
 app.post('/api/login/',  async (req, res, next) =>  {     //Route pour vérifier la connexion du contrôleur
-
     const user = await query(`SELECT * FROM users WHERE Identifiants = '${req.body.username}';`);
     if(!user.length >= 1){
         return res.status(403).send();              //Retourne 403 pour une connexion échouée
+
     }
     if(user[0].MDP === req.body.pwd){
         let token = jwt.sign({ user: user}, 'secret'); //Délivre un token d'authentification
@@ -106,13 +106,24 @@ app.use(function (req, res, next) {
     res.status(404).send("Désolé cette page n'existe pas, veuillez reformuler votre demande)");
 });
 
+try {
+  
+  const server = http.createServer(app);
+  console.log(`Démarrage du serveur HTTP`);
+  const wss = new WebSocketServer({ server });
+  console.log(`Démarrage du serveur WebSocket`);
+  wss.on('connection',(ws) => {
+      ws.on('message',(message) => {
+          console.log(`received : ${ message}`);
+          ws.send(`Hello, you sent -> ${message}`);
+      })
 
-// Lance le serveur sur le port 3000 (HTTP)
-serveur.listen(3000, function () {
+      ws.send(`Hi there, I am a WebSocket Server`);
+  })
+  
+  server.listen(3000, () => {
     console.log('API TestVerin démarrée et disponible à l\'adresse : http://localhost:3000.');
-});
-
-wsServeur.on('connexion', (socket, req) => {
-    console.log('socket', socket);
-    console.log('req', req);
-})
+  });
+} catch (error) {
+    console.error(error)    
+}
