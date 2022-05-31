@@ -1,5 +1,5 @@
 // Création d'une instance d'express
-const { response } = require('express');
+const { response, query } = require('express');
 const express = require('express');
 const cors = require('cors');
 const db = require("./services/db.js")
@@ -11,16 +11,55 @@ const fs = require('fs');
 app.use(cors());
 
 
+app.get('/restaurationVierge', (req, res, next) => {
+    // on définie nos variables
+    const DB_USER = "root"
+    const DB_PWD = "root"
+    const DB_HOST = "127.0.0.1"
+    const dirPath = `./sauvegardes/BddVierge`
+    const { exec } = require("child_process");
+    const verif = `mysqlquery( 'SHOW DATABASE LIKE "testverins" 'or die(mysql_error()))`;
+    const drop = query( `DROP DATABASE testverins` )
+    drop
+    const command = `mysql -u ${DB_USER} -p${DB_PWD}  -h ${DB_HOST} ` 
+    console.log(command)   
+    exec(`${command} ${verif}`),(error)=> {
+    if( error ){
+        console.log('ici!')
+         // on restaure la sauvegardes testverins.sql dans le dossier BddVierge
+        exec(`${command} testverins < ${dirPath}/testverins.sql`, (error, stdout, stderr) => { 
+            if (error) {
+                next(error)
+                return;
+            }
+            if (stderr) {
+                console.error(`stderr: ${stderr}`);
+            }
+       
+        })
+    }
+    else{
+        exec(`${command} DROP DATABASE testverins`), (error) => {
+            console.log('la!')
+        }
+    }
+}
+})
+
+
+
 app.get('/sauvegarde', (req, res, next) => {
+    // on définie nos variables
     const DB_USER = "root"
     const DB_PWD = "root"
     const DB_HOST = "127.0.0.1"
     const dirPath = `./sauvegardes/${new Date().toLocaleDateString().replaceAll('/', '-')}`
-    fs.mkdirSync(dirPath)
+    fs.mkdirSync(dirPath)  // On créér un dossier à l'emplacement voulu
     const { exec } = require("child_process");
-    const command = `mysqldump -u ${DB_USER} -p${DB_PWD} testverins -h ${DB_HOST}`
+    const command = `mysqldump -u ${DB_USER} -p${DB_PWD} testverins -h ${DB_HOST}` 
     console.log(command)
-    exec(`${command} > ${dirPath}/testverins.sql`, (error, stdout, stderr) => {
+    // on créer la sauvegardes testverins.sql dans le dossier créé Précédement
+    exec(`${command} > ${dirPath}/testverins.sql`, (error, stdout, stderr) => { 
         if (error) {
             next(error)
             return;
