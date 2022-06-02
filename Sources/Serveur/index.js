@@ -108,9 +108,9 @@ app.post('/api/newAffaire', async (req, res, next) => {
     }
 });
 
-app.get('/api/getTableAffaires', async (req, res, next) => {    //Route pour recup affaire
+app.get('/api/getTableAffaires', async (req, res, next) => {    //Route pour recupérer affaire
     try {
-        const tableAffaires = await query('SELECT * FROM affaire');
+        const tableAffaires = await query('SELECT * FROM `testverins`.`affaire` AS af INNER JOIN `testverins`.`essais` AS es ON af.IdAffaire = es.IdAffaire;');
         return res.json(tableAffaires);
     } catch (error) {
         console.error(error);
