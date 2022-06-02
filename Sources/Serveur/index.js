@@ -105,17 +105,18 @@ app.post('/api/newAffaire', async (req, res, next) => {
 
 app.get('/api/getTableAffaires', async (req, res, next) => {    //Route pour recupérer affaire
     try {
-        const tableAffaires = await query('SELECT * FROM `testverins`.`affaire` AS af INNER JOIN `testverins`.`essais` AS es ON af.IdAffaire = es.IdAffaire;');
+        const tableAffaires = await query('SELECT * FROM affaire INNER JOIN clients ON affaire.IdClient = clients.IdClient;');
         return res.json(tableAffaires);
     } catch (error) {
         console.error(error);
     }
 });
 
-app.get('/api/getTableEssais', async (req, res, next) => {
+app.get('/api/getTableEssais/:id', async (req, res, next) => {
 
     try {
-        const tableEssais = await query('SELECT * FROM essais');
+        const id = req.params.id;
+        const tableEssais = await query(`SELECT * FROM essais WHERE IdAffaire = ${id}`);
         return res.json(tableEssais);
     } catch (error) {
         console.error(error);
