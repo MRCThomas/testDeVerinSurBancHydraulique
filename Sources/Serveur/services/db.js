@@ -7,7 +7,7 @@ export async function query(sql, params) {
     password: "root",
     database: "testverins",
   });
-  console.log(`La connexion à la base de donnée est effectuée : ${connection.threadId}`);
+  console.log(`[SQL] Execting : ${sql}`);
   const [results, ] = await connection.execute(sql, params);
 
   return results;
