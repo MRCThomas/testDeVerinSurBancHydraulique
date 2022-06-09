@@ -3,7 +3,7 @@ import * as http from 'http';
 import { WebSocketServer } from 'ws';
 import { exec, spawn } from 'child_process';
 import cors from 'cors';
-import { queryOnDatabase, mutiStatementsQuery } from "./services/db.js";
+import { query, mutiStatementsQuery } from "./services/db.js";
 import jwt from 'jsonwebtoken';
 import path from 'path';
 import authMiddleware from './authentification-middleware.js';
