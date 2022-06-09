@@ -1,48 +1,52 @@
-import express from 'express';
+import express, { response } from 'express';
 import * as http from 'http';
 import { WebSocketServer } from 'ws';
-import { exec } from 'child_process';
+import { exec, spawn } from 'child_process';
 import cors from 'cors';
-import { queryOnDatabase, queryOnEngine } from "./services/db.js";
+import { queryOnDatabase, mutiStatementsQuery } from "./services/db.js";
 import jwt from 'jsonwebtoken';
 import path from 'path';
 import authMiddleware from './authentification-middleware.js';
-import { mkdirSync, readFile, readFileSync } from 'fs';
+import { mkdirSync, createWriteStream, readFileSync } from 'fs';
+import { join, resolve, dirname } from 'path'
 const app = express();
 
 
 app.use(cors());
 
+app.get('/SauvegardeEssai', async (req, res, next) => {
+    const PressionIn = "5"
+    const PressionOut = "5"
+    const PressionMax = "5"
+    const rendement = "1"
+    const ModeOp = "4"
+    const Conformite = "0"
+    //const DateEssai = `${new Date().toLocaleDateString().replaceAll('/', '-')}`
+    console.log(DateEssai)
+    queryOnDatabase(`INSERT INTO donnees(PressionIn, PressionOut, PressionMax, Rendement )VALUES ('${PressionIn}', '${PressionOut}','${PressionMax}','${rendement}')`)
+    queryOnDatabase(`INSERT INTO essais (ModeOP, Conformite, DateEssai )VALUES ('${ModeOp}', '${Conformite}')`)
+})
 
-app.get('/restaurationVierge',  async (req, res, next) => {
-
-    try {
-        const dirPath = `./sauvegardes/BddVierge/testverins.sql`
-        const sqlData = readFileSync(dirPath).toString();
-        const queries = sqlData.split(";");
-        for(let command of queries) {
-            console.log('Executing : %s',command)
-            await queryOnEngine(command);
-        };
-    } catch (error) {
-        return next(error)
-    }
-    
+app.get('/restaurationVierge', async (req, res, next) => {
+    let __dirname = resolve(dirname(''))
+    let sqlContent = readFileSync(join(__dirname, './sauvegardes/BddVierge/testverins.sql')).toString();
+    //let wstream = createWriteStream(join(__dirname,'./sauvegardes/BddVierge/testverins.sql'));
+    mutiStatementsQuery(sqlContent);
 })
 
 
 
 app.get('/sauvegarde', (req, res, next) => {
-    // on définie nos variables
+
     const DB_USER = "root"
-    const DB_PWD = "root"
+    const DB_PWD = "root"          // on définie nos variables
     const DB_HOST = "127.0.0.1"
     const dirPath = `./sauvegardes/${new Date().toLocaleDateString().replaceAll('/', '-')}`
-    mkdirSync(dirPath)  // On créér un dossier à l'emplacement voulu
+    mkdirSync(dirPath)          // On créér un dossier à l'emplacement voulu
     const command = `mysqldump -u ${DB_USER} -p${DB_PWD} testverins -h ${DB_HOST}`
     console.log(command)
-    // on créer la sauvegardes testverins.sql dans le dossier créé Précédement
     exec(`${command} > ${dirPath}/testverins.sql`, (error, stdout, stderr) => {
+        // on créer la sauvegardes testverins.sql dans le dossier créé Précédement
         if (error) {
             next(error)
             return;
@@ -50,23 +54,13 @@ app.get('/sauvegarde', (req, res, next) => {
         if (stderr) {
             console.error(`stderr: ${stderr}`);
         }
-
-        const sentFilePath = path.join(__dirname, dirPath);
-        res.sendFile(`${sentFilePath}/testverins.sql`, function (err) {
-            console.log('ici !')
-            if (err) {
-                next(err);
-            } else {
-                console.log('Sent:');
-            }
-        });
     })
 })
 
 app.use(express.static('./../Application Web'), express.json()); //
 //app.use(authMiddleware)
 
-app.get('/affaire/fake',async function (req, res, next) {   // Route de simulation de données concernants les affaires 
+app.get('/affaire/fake', async function (req, res, next) {   // Route de simulation de données concernants les affaires 
     const data = []
     const essai = await queryOnDatabase("SELECT * from essai")  // On reçois tout les donnés d'une Affaires 
     result:

@@ -8,7 +8,7 @@ export async function queryOnDatabase(sql, params) {
       password: "root",
       database: "testverins",
     });
-    console.log(`La connexion à la base de donnée est effectuée : ${connection.threadId}`);
+    console.log(`Executing  ${sql}`);
     const [results, ] = await connection.execute(sql, params);
     return results;
   } catch (error) {
@@ -16,19 +16,22 @@ export async function queryOnDatabase(sql, params) {
   }
 }
 
-export async function queryOnEngine(sql, params) {
+export async function mutiStatementsQuery(sqlContent) {
   try {
     const connection = await mysql.createConnection({
       host: "127.0.0.1",
       user: "root",
       password: "root",
-      //database: "testverins",
+      // described at https://www.npmjs.com/package/mysql#multiple-statement-queries
+      multipleStatements: true,
+      // your connection options follow here
     });
-    console.log(`La connexion à la base de donnée est effectuée : ${connection.threadId}`);
-    const [results, ] = await connection.execute(sql, params);
-    return results;
+    await connection.execute(sqlContent)
+    /* , (err) => { 
+      console.log(err ? err : 'restored!')
+    }); */    
   } catch (error) {
-    console.error(sql)
+    console.error(error)
     throw new Error(error)
   }
 }

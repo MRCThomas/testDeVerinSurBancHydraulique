@@ -75,13 +75,13 @@ DROP TABLE IF EXISTS `donnees`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `donnees` (
-  `IdDonnees` int NOT NULL,
+  `IdDonnees` int NOT NULL AUTO_INCREMENT,
   `PressionIn` int DEFAULT NULL COMMENT 'En Bar',
   `PressionOut` int DEFAULT NULL COMMENT 'En Bar',
   `PressionMax` int DEFAULT NULL COMMENT 'En Bar',
   `Rendement` int DEFAULT NULL,
   PRIMARY KEY (`IdDonnees`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,6 +90,7 @@ CREATE TABLE `donnees` (
 
 LOCK TABLES `donnees` WRITE;
 /*!40000 ALTER TABLE `donnees` DISABLE KEYS */;
+INSERT INTO `donnees` VALUES (1,4,2,5,NULL),(2,24,2,25,NULL),(3,24,2,25,4),(4,24,2,25,4),(5,24,2,25,4),(6,24,2,25,4),(7,24,2,25,4),(8,24,2,25,4),(9,24,2,25,4),(10,24,2,25,4),(11,24,2,25,4),(12,24,2,25,4),(13,24,2,25,4),(14,24,2,25,4),(15,4,4,14,2);
 /*!40000 ALTER TABLE `donnees` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,7 +122,7 @@ CREATE TABLE `essais` (
   CONSTRAINT `FK_essais_UsersC` FOREIGN KEY (`IdUserCreate`) REFERENCES `users` (`IdUser`),
   CONSTRAINT `FK_essais_UsersD` FOREIGN KEY (`IdUserDo`) REFERENCES `users` (`IdUser`),
   CONSTRAINT `FK_essais_Verin` FOREIGN KEY (`Idverin`) REFERENCES `verins` (`IdVerin`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,6 +131,7 @@ CREATE TABLE `essais` (
 
 LOCK TABLES `essais` WRITE;
 /*!40000 ALTER TABLE `essais` DISABLE KEYS */;
+INSERT INTO `essais` VALUES (1,'4',NULL,1,NULL,NULL,NULL,NULL,NULL),(4,'4','01-06-2022',1,NULL,NULL,NULL,NULL,NULL),(5,'4','02-06-2022',1,NULL,NULL,NULL,NULL,NULL),(6,'2','02-06-2022',0,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `essais` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -192,4 +194,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-08  9:09:06
+-- Dump completed on 2022-06-02 10:00:25
