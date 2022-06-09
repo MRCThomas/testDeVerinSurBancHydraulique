@@ -61,6 +61,9 @@ fetch("http://" + ipAdress + ":3000/api/getTableAffaires", {
 
 })
     .then(response => {
+        if(response.status === 403 || response.status === 401 || response.status === 500) {
+            window.location.href = "http://" + ipAdress + ":3000/";
+        }
         response.json().then((json) => {
 
             tableAffaires = json;
@@ -90,6 +93,7 @@ addAffaire.addEventListener("click", (e) => {
             .then(response => {
                 if(response.status == 200){
                     alert("l'Affaire à bien été créer.");
+                    location.reload();
                 }else{
                     response.json().then((json) => {
                         console.log(json.error);
@@ -103,7 +107,7 @@ addAffaire.addEventListener("click", (e) => {
 logOffButton.addEventListener("click", (e) => {
 
     if (confirm("Etes vous sure de vouloir vous déconnecter ?")) {
-
+        localStorage.clear();
         window.location.href = 'http://' + ipAdress + ':3000';
     }
 })

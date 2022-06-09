@@ -76,8 +76,9 @@ app.get('/sauvegarde', (req, res, next) => {
     })
 })
 
-app.use(express.static('./../Application Web'), express.json()); //
-app.use(authMiddleware)
+
+app.use(express.static('./../Application Web'), express.json()); 
+app.use(authMiddleware);
 
 app.get('/affaire/fake', function (req, res, next) {   // Route de simulation de données concernants les affaires 
     const data = []
