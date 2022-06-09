@@ -48,7 +48,7 @@ function createListeAffaire(affaire) {         // Fonction qui instancie une aff
                 })
 
                 unorderedList.appendChild(essaiListItem);
-                
+
             })
         }
     })
@@ -76,14 +76,26 @@ fetch("http://" + ipAdress + ":3000/api/getTableAffaires", {
 addAffaire.addEventListener("click", (e) => {
 
     if (confirm("Etes vous sure de vouloir créer une affaire ?")) {
-
+        const clientName = prompt("Entrez le nom de votre entreprise :");
         fetch("http://" + ipAdress + ":3000/api/newAffaire", {
             method: 'POST',
-            headers: { "authorization": `Bearer ${localStorage.getItem("Authorization")}` },
+            headers: {
+                "authorization": `Bearer ${localStorage.getItem("Authorization")}`,
+                "Content-Type": 'application/json'
+            },
             body: JSON.stringify({
-                "user": localStorage.getItem("username")
+                "Entreprise": clientName,
             })
-        });
+        })
+            .then(response => {
+                if(response.status == 200){
+                    alert("l'Affaire à bien été créer.");
+                }else{
+                    response.json().then((json) => {
+                        console.log(json.error);
+                    });
+                }
+            })
 
     }
 })

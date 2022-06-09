@@ -17,7 +17,6 @@ connexionInput.addEventListener("click", (e) => {
                 console.log(response);
                 let token = response.json().then((token) => {
                     localStorage.setItem("Authorization", token.access_token);
-                    localStorage.setItem("username", userInput.value);
                     window.location.href = "http://" + ipAdress + ":3000/affaireControleur.html"; //Redirection de page
                 });
             }else{

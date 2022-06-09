@@ -4,7 +4,6 @@ export default function authMiddleware (req, res, next)  {
     if(req.url == "/" || req.url.match("login")){
         return next();
     }
-    console.log(req.headers);
     if(!req.headers.authorization) {
         return next(401);
     }
@@ -17,7 +16,7 @@ export default function authMiddleware (req, res, next)  {
                     message: 'jwt malformed'
                 })
             }
-            req.app.locals.user = decoded;  //Token validé
+            req.app.locals.user = decoded.user;  //Token validé
             return next();  //Passe à l'étape suivante
         }
     )

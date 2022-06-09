@@ -15,7 +15,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
-
+app.use(express.json());
 app.use(cors());
 
 
@@ -77,7 +77,7 @@ app.get('/sauvegarde', (req, res, next) => {
 })
 
 app.use(express.static('./../Application Web'), express.json()); //
-//app.use(authMiddleware)
+app.use(authMiddleware)
 
 app.get('/affaire/fake', function (req, res, next) {   // Route de simulation de données concernants les affaires 
     const data = []
@@ -90,17 +90,20 @@ app.get('/affaire/fake', function (req, res, next) {   // Route de simulation de
 app.post('/api/newAffaire', async (req, res, next) => {
 
     try {
-        const IdUser = await query(`SELECT IdUser FROM users WHERE Identifiants = '${req.body.user}';`)
-        console.log(req.body.user);
-        //const result = await query("INSERT INTO affaire (`IdClient`,`IdUser`) VALUES ('1','"+IdUser+"');");
-        //console.log(result);
-        // res.json({
-        //     'result': result
-        // })
-
+        let clientTable = await query(`SELECT * FROM clients WHERE Entreprise = "${req.body.Entreprise}"`);
+        console.log(clientTable);
+         if(!clientTable[0]){
+             await query(`INSERT INTO clients (Entreprise, NbAffaires) VALUES ("${req.body.Entreprise}", 0)`);
+             clientTable = await query(`SELECT * FROM clients WHERE Entreprise = "${req.body.Entreprise}"`);
+             
+         }
+         await query(`INSERT INTO affaire (IdClient, IdUser) VALUES (${clientTable[0].IdClient}, ${req.app.locals.user.IdUser})`);
+         await query(`UPDATE clients SET NbAffaires = ${clientTable[0].NbAffaires + 1} WHERE IdClient = ${clientTable[0].IdClient}`);
     } catch (error) {
         console.error(error);
+        return res.status(403).json({"error": error});
     }
+    return res.status(200).send();
 });
 
 app.get('/api/getTableAffaires', async (req, res, next) => {    //Route pour recupérer affaire
@@ -130,7 +133,9 @@ app.post('/api/login/', async (req, res, next) => {     //Route pour vérifier l
 
     }
     if (user[0].MDP === req.body.pwd) {
-        let token = jwt.sign({ user: user }, 'secret'); //Délivre un token d'authentification
+        delete user[0].MDP;
+        console.log('user',user[0])
+        let token = jwt.sign({ user: user[0] }, 'secret'); //Délivre un token d'authentification
         return res.status(200).json({ "access_token": token });             //Retourne 200 pour une connexion réussie
     } else {
         return res.status(403).send();
