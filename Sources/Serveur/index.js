@@ -27,11 +27,27 @@ app.get('/SauvegardeEssai', async (req, res, next) => {
     queryOnDatabase(`INSERT INTO essais (ModeOP, Conformite, DateEssai )VALUES ('${ModeOp}', '${Conformite}')`)
 })
 
-app.get('/restaurationVierge', async (req, res, next) => {
-    let __dirname = resolve(dirname(''))
-    let sqlContent = readFileSync(join(__dirname, './sauvegardes/BddVierge/testverins.sql')).toString();
-    //let wstream = createWriteStream(join(__dirname,'./sauvegardes/BddVierge/testverins.sql'));
-    mutiStatementsQuery(sqlContent);
+app.get('/restaurationVierge', (req, res, next) => {
+    const host = 'localhost';
+    const user = 'root';
+    const password = 'root';
+    //const database = 'testverins';
+
+    const importer = new Importer({ host, user, password });
+
+    // New onProgress method, added in version 5.0!
+    importer.onProgress(progress => {
+        var percent = Math.floor(progress.bytes_processed / progress.total_bytes * 10000) / 100;
+        console.log(`${percent}% Completed`);
+    });
+
+    importer.import(join(__dirname,'./sauvegardes/BddVierge/testverins.sql')).then(() => {
+        var files_imported = importer.getImported();
+        console.log(`${files_imported.length} SQL file(s) imported.`);
+        res.send('completed');
+    }).catch(err => {
+        console.error(err);
+    });
 })
 
 
@@ -79,19 +95,20 @@ app.post('/api/newAffaire', async (req, res, next) => {
     }
 });
 
-app.get('/api/getTableAffaires', async (req, res, next) => {    //Route pour recup affaire
+app.get('/api/getTableAffaires', async (req, res, next) => {    //Route pour recupérer affaire
     try {
-        const tableAffaires = await queryOnDatabase('SELECT * FROM affaire');
+        const tableAffaires = await query('SELECT * FROM affaire INNER JOIN clients ON affaire.IdClient = clients.IdClient;');
         return res.json(tableAffaires);
     } catch (error) {
         console.error(error);
     }
 });
 
-app.get('/api/getTableEssais', async (req, res, next) => {
+app.get('/api/getTableEssais/:id', async (req, res, next) => {
 
     try {
-        const tableEssais = await queryOnDatabase('SELECT * FROM essais');
+        const id = req.params.id;
+        const tableEssais = await query(`SELECT * FROM essais WHERE IdAffaire = ${id}`);
         return res.json(tableEssais);
     } catch (error) {
         console.error(error);
@@ -99,7 +116,7 @@ app.get('/api/getTableEssais', async (req, res, next) => {
 })
 
 app.post('/api/login/', async (req, res, next) => {     //Route pour vérifier la connexion du contrôleur
-    const user = await queryOnDatabase(`SELECT * FROM users WHERE Identifiants = '${req.body.username}';`);
+    const user = await query(`SELECT * FROM users WHERE Identifiants = '${req.body.username}';`);
     if (!user.length >= 1) {
         return res.status(403).send();              //Retourne 403 pour une connexion échouée
 
