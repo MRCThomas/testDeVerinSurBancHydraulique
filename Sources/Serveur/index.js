@@ -10,28 +10,38 @@ import authMiddleware from './authentification-middleware.js';
 import { mkdirSync, createWriteStream, readFileSync } from 'fs';
 import { join, resolve, dirname } from 'path'
 const app = express();
+import Importer from 'mysql-import';
+import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename)
 
 app.use(cors());
 
 app.get('/SauvegardeEssai', async (req, res, next) => {
-    const PressionIn = "5"
-    const PressionOut = "5"
-    const PressionMax = "5"
-    const rendement = "1"
+    const PressionIn = 5
+    const PressionOut = 5
+    const debit = "1"
+    const rendement ="1"
     const ModeOp = "4"
-    const Conformite = "0"
-    //const DateEssai = `${new Date().toLocaleDateString().replaceAll('/', '-')}`
+    let Conformite = ""
+    console.log("`${rendement}`")
+    if(`${rendement} =! 1`){
+        Conformite = "1";
+        console.log("conforme")
+    }
+    const DateEssai = `${new Date().toLocaleDateString().replaceAll('/', '-')}`
     console.log(DateEssai)
-    queryOnDatabase(`INSERT INTO donnees(PressionIn, PressionOut, PressionMax, Rendement )VALUES ('${PressionIn}', '${PressionOut}','${PressionMax}','${rendement}')`)
-    queryOnDatabase(`INSERT INTO essais (ModeOP, Conformite, DateEssai )VALUES ('${ModeOp}', '${Conformite}')`)
+    query(`INSERT INTO donnees(PressionIn, PressionOut, Debit, Rendement )VALUES ('${PressionIn}', '${PressionOut}','${debit}','${rendement}')`)
+    query(`INSERT INTO essais (ModeOP, Conformite, DateEssai )VALUES ('${ModeOp}', '${Conformite}','${DateEssai}')`)
+    res.send('completed');
+    
 })
 
 app.get('/restaurationVierge', (req, res, next) => {
     const host = 'localhost';
     const user = 'root';
     const password = 'root';
-    //const database = 'testverins';
 
     const importer = new Importer({ host, user, password });
 
@@ -70,7 +80,9 @@ app.get('/sauvegarde', (req, res, next) => {
         if (stderr) {
             console.error(`stderr: ${stderr}`);
         }
+        
     })
+    res.send('completed');
 })
 
 app.use(express.static('./../Application Web'), express.json()); //

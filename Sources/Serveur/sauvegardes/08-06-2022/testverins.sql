@@ -15,6 +15,9 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+-- Listage de la structure de la base pour testverins
+CREATE DATABASE IF NOT EXISTS `testverins` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `testverins`;
 --
 -- Table structure for table `affaire`
 --
@@ -75,7 +78,7 @@ DROP TABLE IF EXISTS `donnees`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `donnees` (
-  `IdDonnees` int NOT NULL,
+  `IdDonnees` int NOT NULL AUTO_INCREMENT,
   `PressionIn` int DEFAULT NULL COMMENT 'En Bar',
   `PressionOut` int DEFAULT NULL COMMENT 'En Bar',
   `PressionMax` int DEFAULT NULL COMMENT 'En Bar',
@@ -103,21 +106,21 @@ DROP TABLE IF EXISTS `essais`;
 CREATE TABLE `essais` (
   `IdEssai` int NOT NULL AUTO_INCREMENT,
   `ModeOp` varchar(50) NOT NULL DEFAULT '0',
-  `DateEssai` varchar(50) DEFAULT NULL,
+  `DateEssai` datetime DEFAULT NULL,
   `Conformite` tinyint(1) DEFAULT NULL,
   `IdAffaire` int DEFAULT NULL,
   `IdUserCreate` int DEFAULT NULL,
   `IdUserDo` int DEFAULT NULL,
-  `IdDonnees` int DEFAULT NULL,
   `Idverin` int DEFAULT NULL,
+  `IdDonnees` int DEFAULT NULL,
   PRIMARY KEY (`IdEssai`),
   KEY `FK_essais_affaire` (`IdAffaire`),
-  KEY `FK_essais_Donnees` (`IdDonnees`),
   KEY `FK_essais_Verin` (`Idverin`),
   KEY `FK_essais_Users` (`IdUserCreate`) USING BTREE,
   KEY `FK_essais_UsersD` (`IdUserDo`),
+  KEY `FK_essais_donnees` (`IdDonnees`),
   CONSTRAINT `FK_essais_affaire` FOREIGN KEY (`IdAffaire`) REFERENCES `affaire` (`IdAffaire`),
-  CONSTRAINT `FK_essais_Donnees` FOREIGN KEY (`IdDonnees`) REFERENCES `donnees` (`IdDonnees`),
+  CONSTRAINT `FK_essais_donnees` FOREIGN KEY (`IdDonnees`) REFERENCES `donnees` (`IdDonnees`),
   CONSTRAINT `FK_essais_UsersC` FOREIGN KEY (`IdUserCreate`) REFERENCES `users` (`IdUser`),
   CONSTRAINT `FK_essais_UsersD` FOREIGN KEY (`IdUserDo`) REFERENCES `users` (`IdUser`),
   CONSTRAINT `FK_essais_Verin` FOREIGN KEY (`Idverin`) REFERENCES `verins` (`IdVerin`)
@@ -192,4 +195,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-08  9:09:06
+-- Dump completed on 2022-06-09 16:33:47

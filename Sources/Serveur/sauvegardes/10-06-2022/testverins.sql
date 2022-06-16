@@ -75,13 +75,13 @@ DROP TABLE IF EXISTS `donnees`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `donnees` (
-  `IdDonnees` int NOT NULL,
+  `IdDonnees` int NOT NULL AUTO_INCREMENT,
   `PressionIn` int DEFAULT NULL COMMENT 'En Bar',
   `PressionOut` int DEFAULT NULL COMMENT 'En Bar',
   `PressionMax` int DEFAULT NULL COMMENT 'En Bar',
   `Rendement` int DEFAULT NULL,
   PRIMARY KEY (`IdDonnees`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,6 +90,7 @@ CREATE TABLE `donnees` (
 
 LOCK TABLES `donnees` WRITE;
 /*!40000 ALTER TABLE `donnees` DISABLE KEYS */;
+INSERT INTO `donnees` VALUES (3,5,5,5,1),(4,5,5,5,1),(5,5,5,5,1),(6,5,5,5,1);
 /*!40000 ALTER TABLE `donnees` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,25 +104,25 @@ DROP TABLE IF EXISTS `essais`;
 CREATE TABLE `essais` (
   `IdEssai` int NOT NULL AUTO_INCREMENT,
   `ModeOp` varchar(50) NOT NULL DEFAULT '0',
-  `DateEssai` datetime DEFAULT NULL,
+  `DateEssai` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Conformite` tinyint(1) DEFAULT NULL,
   `IdAffaire` int DEFAULT NULL,
   `IdUserCreate` int DEFAULT NULL,
   `IdUserDo` int DEFAULT NULL,
-  `IdDonnees` int DEFAULT NULL,
   `Idverin` int DEFAULT NULL,
+  `IdDonnees` int DEFAULT NULL,
   PRIMARY KEY (`IdEssai`),
   KEY `FK_essais_affaire` (`IdAffaire`),
-  KEY `FK_essais_Donnees` (`IdDonnees`),
   KEY `FK_essais_Verin` (`Idverin`),
   KEY `FK_essais_Users` (`IdUserCreate`) USING BTREE,
   KEY `FK_essais_UsersD` (`IdUserDo`),
+  KEY `FK_essais_donnees` (`IdDonnees`),
   CONSTRAINT `FK_essais_affaire` FOREIGN KEY (`IdAffaire`) REFERENCES `affaire` (`IdAffaire`),
-  CONSTRAINT `FK_essais_Donnees` FOREIGN KEY (`IdDonnees`) REFERENCES `donnees` (`IdDonnees`),
+  CONSTRAINT `FK_essais_donnees` FOREIGN KEY (`IdDonnees`) REFERENCES `donnees` (`IdDonnees`),
   CONSTRAINT `FK_essais_UsersC` FOREIGN KEY (`IdUserCreate`) REFERENCES `users` (`IdUser`),
   CONSTRAINT `FK_essais_UsersD` FOREIGN KEY (`IdUserDo`) REFERENCES `users` (`IdUser`),
   CONSTRAINT `FK_essais_Verin` FOREIGN KEY (`Idverin`) REFERENCES `verins` (`IdVerin`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,6 +131,7 @@ CREATE TABLE `essais` (
 
 LOCK TABLES `essais` WRITE;
 /*!40000 ALTER TABLE `essais` DISABLE KEYS */;
+INSERT INTO `essais` VALUES (2,'4','09-06-2022',0,NULL,NULL,NULL,NULL,NULL),(3,'4','10-06-2022',0,NULL,NULL,NULL,NULL,NULL),(4,'4','10-06-2022',0,NULL,NULL,NULL,NULL,NULL),(5,'4','10-06-2022',0,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `essais` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -155,6 +157,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'rob1','rob1','2022-06-09 17:12:15');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -192,4 +195,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-31 16:21:15
+-- Dump completed on 2022-06-10 15:16:20

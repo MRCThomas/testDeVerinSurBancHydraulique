@@ -33,6 +33,7 @@ nav > ul {
   text-align: center;
   box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.3);
   height: var(--hauteur-menu);
+  background-color: #DCDCDC;
 }
 
 nav ul {
@@ -166,7 +167,7 @@ button:hover{
 
 .divMainTitle {
   width: 100%;
-  background-color: rgba(133, 133, 133, 0.299);
+  background-color: #DCDCDC;
   height: auto;
   padding: 15px;
   margin-bottom: 80px;
@@ -195,3 +196,93 @@ button:hover{
   border-radius: 50%;
   align-items: center;
 }
+
+#Save {
+  margin-top: 15px;
+  bottom:1%;
+  right:25%;
+  border: none;
+  background: #f5f5f5;
+  cursor: pointer;
+  width: 30px;
+  height: 30px; 
+  margin-left: 5px;
+  background-color: #DCDCDC;
+}
+
+#RestaureV {
+  margin-top: 15px;
+  bottom:1%;
+  right:25%;
+  border: none;
+  background: #f5f5f5;
+  cursor: pointer;
+  width: 30px;
+  height: 30px; 
+  margin-left: 5px;
+  background-color: #DCDCDC;
+}
+
+#RestaureE {
+  margin-top: 15px;
+  bottom:1%;
+  right:25%;
+  border: none;
+  background: #f5f5f5;
+  cursor: pointer;
+  width: 30px;
+  height: 30px; 
+  margin-left: 5px;
+  background-color: #DCDCDC;
+}
+
+#TextSave {
+  margin-top: 50px;
+}
+
+#Save:hover {
+  cursor: pointer;
+  background-color: rgb(173, 173, 173);
+  transition: all 0.6s ease-in-out;
+  border-radius:25%;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+}
+
+.restaure {
+margin-top: 50px;
+
+}
+
+#DivSave{
+  width: 100%;
+  height: 33%;
+  line-height: 165px;
+  text-align: center;
+  font-size: 133%;
+}
+
+#DivRestaure{
+  width: 100%;
+  height: 33%;
+  line-height: 165px;
+  text-align: center;
+  font-size: 133%;
+  
+}
+
+#container{
+  background-color: #DCDCDC;
+  border-radius: 5%;
+  height: 500px;
+  width: 500px;
+  position: absolute;
+  margin-left: 39% ;
+  margin-top: 5%;
+}
+
+body {
+  background-image: url("./img/fondEcran.svg");
+  background-size: cover;
+  }
